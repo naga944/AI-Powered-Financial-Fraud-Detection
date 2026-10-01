@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>User Transactions | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/user-transactions.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <!-- Back Button -->
+
+        <a href="transaction-history.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <!-- Page Title -->
+
+        <div class="page-title">
+
+            <h1>
+
+                User Transactions
+
+            </h1>
+
+            <p>
+
+                Complete payment history with
+
+                <span id="pageUserName">
+
+                    Amit Sharma
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <!-- More -->
+
+        <button class="more-btn">
+
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     USER PROFILE CARD
+========================================== -->
+
+<section class="profile-card">
+
+    <div class="profile-left">
+
+        <!-- Avatar -->
+
+        <div class="avatar" id="userAvatar">
+
+            AS
+
+        </div>
+
+        <!-- User Info -->
+
+        <div class="profile-info">
+
+            <h2 id="userName">
+
+                Amit Sharma
+
+            </h2>
+
+            <p id="userPhone">
+
+                +91 98765 43210
+
+            </p>
+
+            <span>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                AI SecurePay Verified
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Right Buttons -->
+
+    <div class="profile-actions">
+
+        <button
+            class="chat-btn">
+
+            <i class="fa-regular fa-comment-dots"></i>
+
+            <small>Chat</small>
+
+        </button>
+
+        <button
+            class="payagain-btn">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            <small>Pay Again</small>
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     SUMMARY CARDS
+========================================== -->
+
+<section class="summary-grid">
+
+    <!-- Paid -->
+
+    <div class="summary-box">
+
+        <div class="summary-icon sent">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+        </div>
+
+        <div>
+
+            <p>
+
+                Paid to
+
+                <span id="paidName">
+
+                    Amit
+
+                </span>
+
+            </p>
+
+            <h3>
+
+                ₹3,850
+
+            </h3>
+
+            <small>
+
+                5 Transactions
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <!-- Received -->
+
+    <div class="summary-box">
+
+        <div class="summary-icon receive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </div>
+
+        <div>
+
+            <p>
+
+                Received from
+
+                <span id="receivedName">
+
+                    Amit
+
+                </span>
+
+            </p>
+
+            <h3>
+
+                ₹2,650
+
+            </h3>
+
+            <small>
+
+                4 Transactions
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <!-- Total -->
+
+    <div class="summary-box">
+
+        <div class="summary-icon total">
+
+            <i class="fa-regular fa-file-lines"></i>
+
+        </div>
+
+        <div>
+
+            <p>
+
+                Total Transactions
+
+            </p>
+
+            <h3>
+
+                9
+
+            </h3>
+
+            <small>
+
+                Since Jan 2025
+
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     TRANSACTIONS
+========================================== -->
+
+<section class="history-section">
+
+<h3>
+
+10 May 2025
+
+</h3>
+  <!-- ==========================================
+     TRANSACTION 1
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon sent">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Paid to
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi1">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                10:32 AM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="debit">
+
+            - ₹850.00
+
+        </h2>
+
+        <p>
+
+            Debited from
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 2
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon receive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Received from
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi2">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                09:18 AM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="credit">
+
+            + ₹1,200.00
+
+        </h2>
+
+        <p>
+
+            Credited to
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 3
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon sent">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Paid to
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi3">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                08:11 AM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="debit">
+
+            - ₹500.00
+
+        </h2>
+
+        <p>
+
+            Debited from
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     NEXT DATE
+========================================== -->
+
+<h3>
+
+09 May 2025
+
+</h3>
+  <!-- ==========================================
+     TRANSACTION 4
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon receive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Received from
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi4">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                07:45 PM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="credit">
+
+            + ₹750.00
+
+        </h2>
+
+        <p>
+
+            Credited to
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 5
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon sent">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Paid to
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi5">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                06:22 PM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="debit">
+
+            - ₹1,000.00
+
+        </h2>
+
+        <p>
+
+            Debited from
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     NEXT DATE
+========================================== -->
+
+<h3>
+
+08 May 2025
+
+</h3>
+
+<!-- ==========================================
+     TRANSACTION 6
+========================================== -->
+
+<div class="transaction-card">
+
+    <div class="left-side">
+
+        <div class="transaction-icon receive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </div>
+
+        <div class="transaction-info">
+
+            <h3>
+
+                Received from
+
+                <span class="dynamicName">
+
+                    Amit Sharma
+
+                </span>
+
+            </h3>
+
+            <p id="dynamicUpi6">
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <small>
+
+                11:30 AM
+
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="right-side">
+
+        <h2 class="credit">
+
+            + ₹700.00
+
+        </h2>
+
+        <p>
+
+            Credited to
+
+        </p>
+
+        <small>
+
+            SBI •••• 4321
+
+        </small>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     ENTER AMOUNT CARD
+========================================== -->
+
+<section class="pay-card">
+
+    <button id="enterAmountBtn" class="pay-button">
+
+        <div class="pay-left">
+
+            <div class="pay-icon">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+
+                    Enter Amount
+
+                </h3>
+
+                <p>
+
+                    Send money to
+
+                    <span id="bottomUserName">
+
+                        Amit Sharma
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+</section>
+  <!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="bottom-nav">
+
+    <!-- Home -->
+
+    <a href="dashboard.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+    <!-- Search -->
+
+    <a href="search.html">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <span>Search</span>
+
+    </a>
+
+    <!-- Scanner -->
+
+    <a href="payment-options.html">
+
+        <i class="fa-solid fa-qrcode"></i>
+
+        <span>Scanner</span>
+
+    </a>
+
+    <!-- Alerts -->
+
+    <a href="fraud-alerts.html">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>Alerts</span>
+
+    </a>
+
+    <!-- History -->
+
+    <a href="transaction-history.html" class="active">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        <span>History</span>
+
+    </a>
+
+</nav>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/user-transactions.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My QR | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/my-qr.css">
+    <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="top-bar">
+
+            <!-- Back Button -->
+
+            <a href="payment-options.html" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </a>
+
+            <!-- Help -->
+
+            <button class="help-btn">
+
+                <i class="fa-regular fa-circle-question"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ================= TITLE ================= -->
+
+    <section class="title-section">
+
+        <h1>My QR</h1>
+
+        <p>
+
+            Share your QR code to receive payments
+
+        </p>
+
+    </section>
+
+    <!-- ================= QR CARD ================= -->
+
+    <section class="qr-card">
+
+        <!-- User Details -->
+
+        <div class="user-info">
+
+            <div class="profile-circle">
+
+                DR
+
+            </div>
+
+            <div class="user-details">
+
+                <h2>Account holder</h2>
+
+                <p>Mobile number</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- QR Heading -->
+
+        <div class="scan-heading">
+
+            <h2>Scan with SecurePay</h2>
+
+        </div>
+
+        <!-- QR Code -->
+
+        <div class="qr-box">
+
+              <img id="myQrImage" alt="Your signed SecurePay QR code"
+
+                 class="qr-image">
+
+        </div>
+
+        <!-- UPI ID -->
+
+        <div class="upi-id">
+
+            <h3>
+
+                SecurePay ID :
+
+                <span>
+
+                    <span id="securepayPaymentId">Loading...</span>
+
+                </span>
+
+            </h3>
+
+        </div>
+
+        <!-- Accepted Apps -->
+
+        <div class="upi-apps">
+
+            <div class="upi-logo">
+
+                SecurePay
+
+            </div>
+
+            <p>
+
+                This signed code can only be verified by the SecurePay demo scanner.
+
+            </p>
+
+            <div class="apps">
+
+                <span>Signed</span>
+                <span>Verified</span>
+                <span>SecurePay</span>
+
+            </div>
+
+        </div>
+
+    </section>
+      <!-- ================= ACTION BUTTONS ================= -->
+
+    <section class="action-buttons">
+
+        <!-- Share QR -->
+
+        <button class="action-btn" id="shareQR">
+
+            <i class="fa-solid fa-share-nodes"></i>
+
+            <span>Share QR</span>
+
+        </button>
+
+        <!-- Download QR -->
+
+        <button class="action-btn" id="downloadQR">
+
+            <i class="fa-solid fa-download"></i>
+
+            <span>Download</span>
+
+        </button>
+
+        <!-- Print QR -->
+
+        <button class="action-btn" id="printQR">
+
+            <i class="fa-solid fa-print"></i>
+
+            <span>Print</span>
+
+        </button>
+
+    </section>
+
+    <!-- ================= SECURITY CARD ================= -->
+
+    <section class="security-card">
+
+        <div class="security-left">
+
+            <div class="security-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Secure. Private. Protected.</h3>
+
+                <p>
+
+                    Your QR code is unique and secure.
+
+                </p>
+
+                <p>
+
+                    Never share your UPI PIN with anyone.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="security-arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </section>
+      <!-- ================= RECENT TRANSACTIONS ================= -->
+
+    <section class="recent-transactions" id="myQrTransactions">
+
+        <div class="section-header">
+
+            <h2>Recent Transactions</h2>
+
+            <a href="transaction-history.html">View All</a>
+
+        </div>
+
+        <!-- Transaction 1 -->
+
+        <div class="transaction-card">
+
+            <div class="transaction-left">
+
+                <div class="avatar purple">
+
+                    AM
+
+                </div>
+
+                <div class="transaction-details">
+
+                    <h3>Amit Mart</h3>
+
+                    <p>Received • 12 May 2025, 10:32 AM</p>
+
+                </div>
+
+            </div>
+
+            <div class="transaction-right">
+
+                <h3 class="success">
+
+                    + ₹850.00
+
+                </h3>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+        </div>
+
+        <!-- Transaction 2 -->
+
+        <div class="transaction-card">
+
+            <div class="transaction-left">
+
+                <div class="avatar green">
+
+                    SK
+
+                </div>
+
+                <div class="transaction-details">
+
+                    <h3>Sunil Kirana</h3>
+
+                    <p>Received • 15 May 2025, 02:15 PM</p>
+
+                </div>
+
+            </div>
+
+            <div class="transaction-right">
+
+                <h3 class="success">
+
+                    + ₹1,250.00
+
+                </h3>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+        </div>
+
+        <!-- Transaction 3 -->
+
+        <div class="transaction-card">
+
+            <div class="transaction-left">
+
+                <div class="avatar blue">
+
+                    RK
+
+                </div>
+
+                <div class="transaction-details">
+
+                    <h3>Rahul Traders</h3>
+
+                    <p>Received • 18 May 2025, 05:40 PM</p>
+
+                </div>
+
+            </div>
+
+            <div class="transaction-right">
+
+                <h3 class="success">
+
+                    + ₹2,000.00
+
+                </h3>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+        </div>
+
+    </section>
+      <!-- ================= AI FRAUD PROTECTION ================= -->
+
+    <section class="fraud-protection">
+
+        <div class="fraud-card">
+
+            <div class="fraud-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div class="fraud-content">
+
+                <h3>Signed QR Verification</h3>
+
+                <p>
+
+                    Only signed SecurePay QR codes can be verified by this demo scanner. No incoming bank payment is processed.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= PAYMENT TIPS ================= -->
+
+    <section class="payment-tips">
+
+        <div class="tips-card">
+
+            <div class="tips-icon">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Safety Tips</h3>
+
+                <ul>
+
+                    <li>Never share your UPI PIN.</li>
+
+                    <li>Do not scan unknown QR codes.</li>
+
+                    <li>Verify the sender before accepting payments.</li>
+
+                    <li>Report suspicious activity immediately.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+
+    <nav class="bottom-nav">
+
+        <a href="dashboard.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+        <a href="search.html">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>Search</span>
+
+        </a>
+
+        <a href="payment-options.html" class="active">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            <span>Scanner</span>
+
+        </a>
+
+        <a href="fraud-alerts.html">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>Alerts</span>
+
+        </a>
+
+        <a href="transaction-history.html">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/auth-client.js"></script>
+<script src="js/my-qr.js"></script>
+
+</body>
+
+</html>

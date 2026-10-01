@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pay to Bank | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/pay-to-bank.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <!-- Back Button -->
+
+        <a href="dashboard.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <!-- Secure Payment -->
+
+        <div class="secure-title">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>Secure Payment</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     PAGE TITLE
+========================================== -->
+
+<section class="title-section">
+
+    <h1>
+
+        Pay to Bank
+
+    </h1>
+
+    <p>
+
+        Send money directly to any bank account
+
+    </p>
+
+</section>
+
+<!-- ==========================================
+     SELECT BANK
+========================================== -->
+
+<section class="bank-section">
+
+    <h2>
+
+        Select Bank
+
+    </h2>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="text"
+               id="bankSearch"
+               placeholder="Search bank name">
+
+    </div>
+
+    <!-- Bank List -->
+
+    <div class="bank-grid">
+
+        <!-- SBI -->
+
+        <div class="bank-card active">
+
+            <div class="bank-logo blue">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <h3>SBI</h3>
+
+        </div>
+
+        <!-- HDFC -->
+
+        <div class="bank-card">
+
+            <div class="bank-logo red">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <h3>HDFC</h3>
+
+        </div>
+
+        <!-- ICICI -->
+
+        <div class="bank-card">
+
+            <div class="bank-logo orange">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <h3>ICICI</h3>
+
+        </div>
+
+        <!-- AXIS -->
+
+        <div class="bank-card">
+
+            <div class="bank-logo purple">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <h3>Axis</h3>
+
+        </div>
+
+        <!-- More -->
+
+        <div class="bank-card">
+
+            <div class="bank-logo gray">
+
+                <i class="fa-solid fa-plus"></i>
+
+            </div>
+
+            <h3>More</h3>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     ENTER BANK DETAILS
+========================================== -->
+
+<section class="details-section">
+
+    <h2>
+
+        Enter Bank Details
+
+    </h2>
+
+    <!-- Account Number -->
+
+    <div class="input-group">
+
+        <label>
+
+            Account Number
+
+        </label>
+
+        <div class="input-box">
+
+            <i class="fa-regular fa-credit-card"></i>
+
+            <input
+                type="text"
+                id="accountNumber"
+                placeholder="Enter account number">
+
+        </div>
+
+    </div>
+
+    <!-- Confirm Account Number -->
+
+    <div class="input-group">
+
+        <label>
+
+            Re-enter Account Number
+
+        </label>
+
+        <div class="input-box">
+
+            <i class="fa-regular fa-credit-card"></i>
+
+            <input
+                type="text"
+                id="confirmAccount"
+                placeholder="Re-enter account number">
+
+        </div>
+
+    </div>
+
+    <!-- IFSC Code -->
+
+    <div class="input-group">
+
+        <label>
+
+            IFSC Code
+
+        </label>
+
+        <div class="input-box">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            <input
+                type="text"
+                id="ifscCode"
+                placeholder="Enter IFSC Code">
+
+            <button
+                type="button"
+                class="ifsc-btn">
+
+                Find IFSC
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Account Holder -->
+
+    <div class="input-group">
+
+        <label>
+
+            Account Holder Name
+
+        </label>
+
+        <div class="input-box">
+
+            <i class="fa-regular fa-user"></i>
+
+            <input
+                type="text"
+                id="holderName"
+                placeholder="Enter account holder name">
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     ENTER AMOUNT
+========================================== -->
+
+<section class="amount-section">
+
+    <h2>
+
+        Enter Amount
+
+    </h2>
+
+    <div class="amount-card">
+
+        <div class="rupee-box">
+
+            ₹
+
+        </div>
+
+        <div class="amount-input">
+
+            <input
+                type="text"
+                id="bankAmount"
+                placeholder="0.00">
+
+            <p>
+
+                Rupees Zero Only
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AI SECURITY NOTICE
+========================================== -->
+
+<section class="security-section">
+
+    <div class="security-card">
+
+        <div class="security-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div class="security-text">
+
+            <h3>
+
+                AI Secure Bank Transfer
+
+            </h3>
+
+            <p>
+
+                AI verifies account details, IFSC code,
+                transaction behaviour and payment risk
+                before processing your transfer.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     PAYMENT LIMIT INFO
+========================================== -->
+
+<section class="info-card">
+
+    <div class="info-icon">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+    </div>
+
+    <div class="info-content">
+
+        <h3>
+
+            AI Payment Protection
+
+        </h3>
+
+        <p>
+
+            Transfers above <strong>₹5,000</strong>
+            require AI verification before payment.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     CONTINUE BUTTON
+========================================== -->
+
+<section class="continue-section">
+
+    <button
+        id="continueBtn"
+        class="continue-btn">
+
+        <span>
+
+            Continue to Pay
+
+        </span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </button>
+
+</section>
+  <!-- ==========================================
+     AI VERIFICATION POPUP
+========================================== -->
+
+<div id="verifyPopup" class="popup-overlay">
+
+    <div class="popup">
+
+        <div class="popup-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <h2>
+
+            AI Transaction Verification
+
+        </h2>
+
+        <p>
+
+            This bank transfer is above
+            <strong>₹5,000</strong>.
+
+        </p>
+
+        <p>
+
+            <strong>Did you initiate this transaction?</strong>
+
+        </p>
+
+        <div class="popup-buttons">
+
+            <button
+                id="yesBtn"
+                class="yes-btn">
+
+                Yes
+
+            </button>
+
+            <button
+                id="noBtn"
+                class="no-btn">
+
+                No
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     PAYMENT SUCCESS POPUP
+========================================== -->
+
+<div id="successPopup" class="popup-overlay">
+
+    <div class="popup success-popup">
+
+        <div class="popup-icon success-icon">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <h2>
+
+            Payment Successful
+
+        </h2>
+
+        <p>
+
+            Your bank transfer has been completed successfully.
+
+        </p>
+
+        <button
+            id="successBtn"
+            class="success-btn">
+
+            Back to Dashboard
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     FRAUD ALERT POPUP
+========================================== -->
+
+<div id="fraudPopup" class="popup-overlay">
+
+    <div class="popup fraud-popup">
+
+        <div class="popup-icon fraud-icon">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <h2>
+
+            AI Fraud Detection
+
+        </h2>
+
+        <p>
+
+            This transaction appears suspicious.
+
+        </p>
+
+        <p>
+
+            AI recommends freezing this payment.
+
+        </p>
+
+        <div class="popup-buttons">
+
+            <button
+                id="reportBtn"
+                class="report-btn">
+
+                Report Fraud
+
+            </button>
+
+            <button
+                id="cancelBtn"
+                class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION FROZEN POPUP
+========================================== -->
+
+<div id="freezePopup" class="popup-overlay">
+
+    <div class="popup freeze-popup">
+
+        <div class="popup-icon freeze-icon">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </div>
+
+        <h2>
+
+            Transaction Frozen
+
+        </h2>
+
+        <p>
+
+            AI has successfully stopped this payment.
+
+        </p>
+
+        <p>
+
+            Your bank has been notified.
+
+        </p>
+
+        <div class="freeze-info">
+
+            <p>✔ Transaction Blocked</p>
+
+            <p>✔ Fraud Report Submitted</p>
+
+            <p>✔ Bank Alert Sent</p>
+
+            <p>✔ Your Money is Safe</p>
+
+        </div>
+
+        <button
+            id="freezeDoneBtn"
+            class="success-btn">
+
+            Back to Dashboard
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/pay-to-bank.js"></script>
+
+</body>
+
+</html>

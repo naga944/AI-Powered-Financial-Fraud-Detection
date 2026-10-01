@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mobile Verification</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/forms.css">
+
+</head>
+
+<body class="auth-page">
+
+<main class="auth-layout">
+	<section class="auth-aside">
+		<a class="auth-brand" href="index.html">
+			<span class="auth-brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+			<span><strong>AI SecurePay</strong><small>Banking intelligence</small></span>
+		</a>
+		<div class="auth-aside-copy">
+			<span class="auth-kicker">YOUR MONEY, WITH MORE CONTEXT</span>
+			<h1>Good banking starts with knowing what is happening.</h1>
+			<p>Review your activity, understand transaction risk, and keep your account details in one secure workspace.</p>
+		</div>
+		<div class="trust-row">
+			<span><i class="fa-solid fa-shield-halved"></i> Protected account access</span>
+			<span><i class="fa-solid fa-chart-line"></i> Transaction risk insights</span>
+		</div>
+	</section>
+	<section class="auth-main">
+		<a class="auth-back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+		<div class="auth-card">
+			<span class="auth-kicker">WELCOME BACK</span>
+			<h2>Sign in to SecurePay</h2>
+			<p class="auth-subtitle">Use the mobile number and password registered to your account.</p>
+			<form id="signInForm" class="auth-form">
+				<label for="loginPhone">Mobile number</label>
+				<div class="auth-input-wrap"><i class="fa-solid fa-mobile-screen-button"></i><input id="loginPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required></div>
+				<label for="loginPassword">Password</label>
+				<div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required></div>
+				<p id="loginMessage" class="auth-message" role="status" aria-live="polite"></p>
+				<button class="auth-submit" type="submit"><span>Sign in securely</span><i class="fa-solid fa-arrow-right"></i></button>
+			</form>
+			<p class="auth-switch">New to SecurePay? <a href="signup.html">Create an account</a></p>
+			<p class="demo-note"><i class="fa-solid fa-circle-info"></i> Demo environment: no bank connection or real money movement is enabled.</p>
+		</div>
+	</section>
+</main>
+
+<div class="container">
+
+<!-- Background -->
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<!-- Logo -->
+
+<div class="top-logo">
+
+<div class="shield">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+</div>
+
+<!-- Welcome -->
+
+<h1>Welcome!</h1>
+
+<p class="subtitle">
+Enter your registered mobile number to continue.
+</p>
+
+<!-- STEP 1 -->
+
+<div class="card">
+
+<div class="step">
+
+STEP 1
+
+</div>
+
+<h2>
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+Mobile Number Verification
+
+</h2>
+
+<label>
+
+Mobile Number
+
+</label>
+
+<div class="mobile-box">
+
+<span>+91</span>
+
+<input
+type="tel"
+maxlength="10"
+placeholder="Enter Mobile Number">
+
+</div>
+
+<button id="sendOtp">
+
+<i class="fa-regular fa-paper-plane"></i>
+
+Send OTP
+
+</button>
+
+</div>
+
+<!-- Scroll Arrow -->
+
+<div class="scroll-area">
+
+<p>
+
+Scroll Down
+
+</p>
+
+<button id="scrollBtn">
+
+<i class="fa-solid fa-angle-down"></i>
+
+</button>
+
+</div>
+
+<!-- STEP 2 -->
+
+<div class="card" id="otpSection">
+
+<div class="step">
+
+STEP 2
+
+</div>
+
+<h2>
+
+<i class="fa-solid fa-lock"></i>
+
+OTP Verification
+
+</h2>
+
+<p class="otp-text">
+
+Enter the 6-digit OTP sent to your mobile number.
+
+</p>
+
+<label>
+
+Enter OTP
+
+</label>
+
+<div class="otp-box">
+
+<input maxlength="1">
+
+<input maxlength="1">
+
+<input maxlength="1">
+
+<input maxlength="1">
+
+<input maxlength="1">
+
+<input maxlength="1">
+
+</div>
+
+<div class="resend">
+
+Didn't receive OTP?
+
+<a href="#">
+
+Resend OTP (30s)
+
+</a>
+
+</div>
+
+<button id="verifyBtn">
+
+<i class="fa-solid fa-circle-check"></i>
+
+Verify & Continue
+
+</button>
+
+</div>
+
+</div>
+
+<style>
+	.auth-page .container { display: none; }
+</style>
+
+<script src="js/auth-client.js"></script>
+<script src="js/otp.js"></script>
+
+</body>
+</html>

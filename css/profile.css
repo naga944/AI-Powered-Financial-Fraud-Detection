@@ -1,0 +1,2120 @@
+/* ==========================================
+   AI SecurePay - Profile
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+.back-btn,
+
+#editProfileBtn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover,
+
+#editProfileBtn:hover{
+
+    background:#2563EB;
+
+}
+
+.page-title{
+
+    flex:1;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.page-title h1 i{
+
+    color:#3B82F6;
+
+    margin-right:8px;
+
+}
+
+.page-title p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    margin-top:5px;
+
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.profile-card{
+
+    margin:20px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+}
+
+.profile-cover{
+
+    height:70px;
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.profile-content{
+
+    padding:20px;
+
+    text-align:center;
+
+    margin-top:-40px;
+
+}
+
+.profile-image{
+
+    width:110px;
+
+    height:110px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.profile-image img{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #FFFFFF;
+
+}
+
+#changePhotoBtn{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    cursor:pointer;
+
+}
+
+.profile-content h2{
+
+    margin-top:15px;
+
+    font-size:24px;
+
+}
+
+.profile-content p{
+
+    color:#DBEAFE;
+
+    margin-top:5px;
+
+    font-size:14px;
+
+}
+
+.verified-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    background:#22C55E;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    margin-top:15px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.profile-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.profile-stats div{
+
+    background:rgba(255,255,255,.12);
+
+    padding:15px;
+
+    border-radius:16px;
+
+}
+
+.profile-stats h3{
+
+    font-size:22px;
+
+    margin-bottom:5px;
+
+}
+
+.profile-stats span{
+
+    font-size:12px;
+
+    color:#DBEAFE;
+
+}
+/* ==========================================
+   MY UPI QR CARD
+========================================== */
+
+.qr-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.card-header h2{
+
+    font-size:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.card-header h2 i{
+
+    color:#3B82F6;
+
+}
+
+.secure-tag{
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+/* ==========================================
+   QR CONTAINER
+========================================== */
+
+.qr-container{
+
+    text-align:center;
+
+}
+
+.qr-image{
+
+    width:220px;
+
+    height:220px;
+
+    margin:20px auto;
+
+    background:#FFFFFF;
+
+    padding:12px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+#upiName{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+#upiId{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.upi-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:15px;
+
+    padding:8px 16px;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   QR BUTTONS
+========================================== */
+
+.qr-buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.qr-buttons button{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.qr-buttons button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   UPI DETAILS
+========================================== */
+
+.upi-details{
+
+    margin-top:25px;
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:18px;
+
+}
+
+.upi-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.upi-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.upi-row span{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.upi-row b{
+
+    font-size:14px;
+
+    color:#FFFFFF;
+
+}
+
+.active-status{
+
+    color:#22C55E !important;
+
+}
+
+/* ==========================================
+   AI QR SECURITY
+========================================== */
+
+.qr-security{
+
+    margin-top:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+.qr-security div{
+
+    background:#111827;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+.qr-security div:hover{
+
+    background:#2563EB;
+
+}
+
+.qr-security i{
+
+    display:block;
+
+    font-size:22px;
+
+    color:#22C55E;
+
+    margin-bottom:10px;
+
+}
+/* ==========================================
+   LINKED BANK ACCOUNTS
+========================================== */
+
+.bank-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.20);
+
+}
+
+#manageBankBtn{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.bank-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-top:15px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.bank-item:hover{
+
+    transform:translateY(-3px);
+
+    background:#1F2937;
+
+}
+
+.bank-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.bank-info{
+
+    flex:1;
+
+}
+
+.bank-info h3{
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+.bank-info p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+.primary-bank{
+
+    display:inline-block;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    padding:5px 12px;
+
+    border-radius:15px;
+
+    font-size:11px;
+
+}
+
+.secondary-bank{
+
+    display:inline-block;
+
+    background:#64748B;
+
+    color:#FFFFFF;
+
+    padding:5px 12px;
+
+    border-radius:15px;
+
+    font-size:11px;
+
+}
+
+/* ==========================================
+   WALLET OVERVIEW
+========================================== */
+
+.wallet-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+.wallet-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.wallet-box{
+
+    background:#111827;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.wallet-box:hover{
+
+    transform:translateY(-3px);
+
+    background:#1F2937;
+
+}
+
+.wallet-box i{
+
+    font-size:28px;
+
+    color:#3B82F6;
+
+    margin-bottom:12px;
+
+}
+
+.wallet-box h3{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.wallet-box p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   PERSONAL INFORMATION
+========================================== */
+
+.personal-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+#editInfoBtn{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.info-row span{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.info-row b{
+
+    color:#FFFFFF;
+
+    font-size:14px;
+
+    text-align:right;
+
+    max-width:55%;
+
+}
+/* ==========================================
+   SECURITY CENTER
+========================================== */
+
+.security-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+.security-grid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.security-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.security-item:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.security-item i{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+}
+
+.security-item div{
+
+    flex:1;
+
+}
+
+.security-item h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.security-item p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.security-item button{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   TOGGLE SWITCH
+========================================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:52px;
+
+    height:28px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#64748B;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+.slider:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:22px;
+
+    height:22px;
+
+    left:3px;
+
+    top:3px;
+
+    background:#FFFFFF;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#22C55E;
+
+}
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(24px);
+
+}
+
+/* ==========================================
+   AI SECURITY SCORE
+========================================== */
+
+.ai-score-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+}
+
+.score-circle{
+
+    width:170px;
+
+    height:170px;
+
+    margin:25px auto;
+
+    border:8px solid rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.score-circle h1{
+
+    font-size:42px;
+
+}
+
+.score-circle p{
+
+    margin-top:8px;
+
+    color:#DBEAFE;
+
+}
+
+.score-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.score-info div{
+
+    background:rgba(255,255,255,.12);
+
+    padding:15px;
+
+    border-radius:16px;
+
+}
+
+.score-info h3{
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.score-info span{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   PAYMENT STATISTICS
+========================================== */
+
+.statistics-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.stats-box{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stats-box:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-3px);
+
+}
+
+.stats-box h3{
+
+    font-size:24px;
+
+    margin-bottom:8px;
+
+    color:#3B82F6;
+
+}
+
+.stats-box p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   RECENT ACTIVITY
+========================================== */
+
+.recent-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+#viewAllTransactions{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+#recentActivity{
+
+    margin-top:20px;
+
+}
+
+.activity-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.activity-item:hover{
+
+    background:#1F2937;
+
+}
+
+.activity-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+}
+
+.activity-details{
+
+    flex:1;
+
+}
+
+.activity-details h4{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+.activity-details p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.activity-amount{
+
+    font-weight:700;
+
+    color:#22C55E;
+
+}
+/* ==========================================
+   LINKED DEVICES
+========================================== */
+
+.devices-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+#manageDevicesBtn{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.device-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-top:15px;
+
+    transition:.3s;
+
+}
+
+.device-item:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.device-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.device-info{
+
+    flex:1;
+
+}
+
+.device-info h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.device-info p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.device-status{
+
+    background:#475569;
+
+    color:#FFFFFF;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+}
+
+.active-device{
+
+    background:#22C55E;
+
+}
+
+/* ==========================================
+   PREFERENCES
+========================================== */
+
+.preferences-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+.preference-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.preference-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.preference-item span{
+
+    font-size:15px;
+
+}
+
+.preference-item select{
+
+    border:none;
+
+    outline:none;
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   HELP & SUPPORT
+========================================== */
+
+.support-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+}
+
+.support-btn{
+
+    width:100%;
+
+    border:none;
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    padding:16px;
+
+    margin-top:15px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.support-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.support-btn i{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.logout-card{
+
+    margin:20px;
+
+}
+
+#logoutBtn{
+
+    width:100%;
+
+    border:none;
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#logoutBtn:hover{
+
+    background:#DC2626;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   LOGOUT POPUP
+========================================== */
+
+.logout-popup{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.logout-box{
+
+    width:90%;
+
+    max-width:340px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.logout-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:#FFFFFF;
+
+    margin-bottom:20px;
+
+}
+
+.logout-box h2{
+
+    margin-bottom:10px;
+
+}
+
+.logout-box p{
+
+    color:#CBD5E1;
+
+    line-height:1.6;
+
+}
+
+.logout-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.logout-buttons button{
+
+    flex:1;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+#cancelLogout{
+
+    background:#475569;
+
+    color:#FFFFFF;
+
+}
+
+#confirmLogout{
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:20px;
+
+    padding:18px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+footer i{
+
+    color:#22C55E;
+
+    margin-right:8px;
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.page-title h1{
+
+    font-size:20px;
+
+}
+
+.page-title p{
+
+    font-size:12px;
+
+}
+
+.profile-stats{
+
+    grid-template-columns:1fr;
+
+}
+
+.wallet-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.score-info{
+
+    grid-template-columns:1fr;
+
+}
+
+.qr-security{
+
+    grid-template-columns:1fr;
+
+}
+
+.qr-buttons{
+
+    grid-template-columns:1fr;
+
+}
+
+.bank-item,
+
+.device-item,
+
+.security-item,
+
+.activity-item{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.info-row,
+
+.preference-item,
+
+.upi-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+}
+
+.logout-buttons{
+
+    flex-direction:column;
+
+}
+
+.support-btn{
+
+    font-size:14px;
+
+}
+
+}
+
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:fadeIn .6s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+
+.profile-card,
+
+.qr-card,
+
+.bank-card,
+
+.wallet-card,
+
+.personal-card,
+
+.security-card,
+
+.ai-score-card,
+
+.statistics-card,
+
+.recent-card,
+
+.devices-card,
+
+.preferences-card,
+
+.support-card,
+
+.logout-card{
+
+    animation:slideUp .6s ease;
+
+}
+
+@keyframes slideUp{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08111F;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL EFFECTS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+.bank-item:active,
+
+.wallet-box:active,
+
+.security-item:active,
+
+.stats-box:active,
+
+.activity-item:active,
+
+.device-item:active,
+
+.support-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.bank-card:hover,
+
+.wallet-card:hover,
+
+.personal-card:hover,
+
+.security-card:hover,
+
+.ai-score-card:hover,
+
+.statistics-card:hover,
+
+.recent-card:hover,
+
+.devices-card:hover,
+
+.preferences-card:hover,
+
+.support-card:hover{
+
+    box-shadow:0 18px 35px rgba(37,99,235,.18);
+
+}
+
+/* ==========================================
+   TEXT SELECTION
+========================================== */
+
+::selection{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

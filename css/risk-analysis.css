@@ -1,0 +1,1701 @@
+/* ==========================================
+   AI SecurePay - Risk Analysis
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#FFFFFF;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.back-btn i{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title{
+
+    flex:1;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.page-title h1 i{
+
+    color:#2563EB;
+
+    margin-right:8px;
+
+}
+
+.page-title p{
+
+    font-size:13px;
+
+    color:#94A3B8;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   INFO BUTTON
+========================================== */
+
+.info-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    color:#FFFFFF;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.info-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.info-btn i{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   RISK SCORE CARD
+========================================== */
+
+.risk-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:0 18px 35px rgba(37,99,235,.30);
+
+}
+
+.risk-left{
+
+    flex:1;
+
+}
+
+.risk-left h2{
+
+    font-size:18px;
+
+    margin-bottom:12px;
+
+}
+
+.score{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:6px;
+
+    margin-bottom:12px;
+
+}
+
+.score span{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+.score small{
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+.badge.low{
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+}
+
+.badge.medium{
+
+    background:#F59E0B;
+
+    color:#FFFFFF;
+
+}
+
+.badge.high{
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+}
+
+#riskMessage{
+
+    font-size:13px;
+
+    color:#DBEAFE;
+
+    line-height:1.6;
+
+}
+/* ==========================================
+   RISK METER
+========================================== */
+
+.risk-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.meter{
+
+    position:relative;
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:conic-gradient(
+
+        #22C55E 0deg 120deg,
+
+        #F59E0B 120deg 240deg,
+
+        #EF4444 240deg 360deg
+
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+}
+
+.meter::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:92px;
+
+    height:92px;
+
+    background:#111827;
+
+    border-radius:50%;
+
+}
+
+.shield{
+
+    position:absolute;
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#22C55E;
+
+    font-size:28px;
+
+    z-index:2;
+
+}
+
+.needle{
+
+    position:absolute;
+
+    bottom:50%;
+
+    left:50%;
+
+    width:4px;
+
+    height:42px;
+
+    background:#FFFFFF;
+
+    transform-origin:bottom center;
+
+    transform:translateX(-50%) rotate(-60deg);
+
+    border-radius:10px;
+
+    z-index:3;
+
+    transition:1s ease;
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title{
+
+    margin:0 20px 18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.section-title h2{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.section-title a{
+
+    text-decoration:none;
+
+    color:#60A5FA;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+/* ==========================================
+   RISK FACTOR CARDS
+========================================== */
+
+.factor-card{
+
+    margin:0 20px 16px;
+
+    padding:18px;
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.factor-card { cursor: pointer; }
+.factor-card:focus-visible { outline: 3px solid #8cdbff; outline-offset: 3px; }
+
+.risk-detail-dialog {
+    width: min(680px, calc(100vw - 32px));
+    max-width: none;
+    margin: auto;
+    padding: 0;
+    border: 1px solid rgba(131, 180, 236, .35);
+    border-radius: 16px;
+    background: #101b2b;
+    color: #eef6ff;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .45);
+}
+
+.risk-detail-dialog::backdrop { background: rgba(4, 12, 24, .72); backdrop-filter: blur(5px); }
+.risk-detail-content { padding: 26px; }
+.risk-detail-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.risk-detail-kicker { color: #8ccfff; font-size: 10px; font-weight: 700; }
+.risk-detail-header h2 { margin-top: 6px; font-size: 23px; }
+.risk-detail-close { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; background: transparent; color: #fff; cursor: pointer; }
+.risk-detail-summary { margin: 14px 0 20px; color: #b6c9db; line-height: 1.6; }
+.risk-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.risk-detail-grid div { min-height: 94px; padding: 14px; border: 1px solid rgba(143,180,220,.16); border-radius: 9px; background: #17263a; }
+.risk-detail-grid dt { margin-bottom: 8px; color: #91a9bf; font-size: 11px; }
+.risk-detail-grid dd { margin: 0; color: #edf6ff; font-size: 13px; line-height: 1.5; }
+.location-controls { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(143,180,220,.16); }
+.location-controls[hidden] { display: none; }
+.location-controls button { padding: 11px 14px; border: 0; border-radius: 8px; background: #1b6f72; color: #fff; font-weight: 700; cursor: pointer; }
+.location-controls p, .location-controls a { display: block; margin-top: 9px; color: #b6c9db; font-size: 12px; }
+.location-controls a { color: #8ccfff; }
+
+@media (max-width: 560px) {
+    .risk-detail-content { padding: 20px; }
+    .risk-detail-grid { grid-template-columns: 1fr; }
+}
+
+.factor-card:hover{
+
+    border-color:#2563EB;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.factor-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex:1;
+
+}
+
+/* ==========================================
+   FACTOR ICONS
+========================================== */
+
+.factor-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.factor-icon.green{
+
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+
+}
+
+.factor-icon.blue{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+}
+
+.factor-icon.orange{
+
+    background:linear-gradient(135deg,#F59E0B,#D97706);
+
+}
+
+.factor-icon.purple{
+
+    background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+
+}
+
+.factor-icon.red{
+
+    background:linear-gradient(135deg,#EF4444,#B91C1C);
+
+}
+
+/* ==========================================
+   FACTOR INFO
+========================================== */
+
+.factor-info h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.factor-info p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.factor-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.factor-right i{
+
+    color:#94A3B8;
+
+}
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.status.low{
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+}
+
+.status.medium{
+
+    background:#F59E0B;
+
+    color:#FFFFFF;
+
+}
+
+.status.high{
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+}
+/* ==========================================
+   RECENT ACTIVITY CARD
+========================================== */
+
+.activity-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.activity-card:hover{
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.activity-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.activity-header h2{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+.activity-header h2 i{
+
+    color:#3B82F6;
+
+    margin-right:8px;
+
+}
+
+.activity-header p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+#riskPercent{
+
+    color:#22C55E;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   TREND BOX
+========================================== */
+
+.trend-box{
+
+    background:#111827;
+
+    padding:12px 16px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    min-width:105px;
+
+}
+
+.trend-box small{
+
+    color:#94A3B8;
+
+    font-size:11px;
+
+}
+
+.trend-box h3{
+
+    color:#22C55E;
+
+    margin:6px 0;
+
+    font-size:18px;
+
+}
+
+.trend-box span{
+
+    color:#CBD5E1;
+
+    font-size:11px;
+
+}
+
+/* ==========================================
+   GRAPH
+========================================== */
+
+.graph{
+
+    width:100%;
+
+    margin:25px 0 15px;
+
+}
+
+.graph-line{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    height:90px;
+
+    position:relative;
+
+}
+
+.graph-line::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:50%;
+
+    height:3px;
+
+    background:#334155;
+
+    z-index:1;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    background:#64748B;
+
+    border-radius:50%;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.dot.active{
+
+    width:16px;
+
+    height:16px;
+
+    background:#22C55E;
+
+    box-shadow:0 0 12px rgba(34,197,94,.6);
+
+}
+
+.dot.large{
+
+    width:22px;
+
+    height:22px;
+
+    background:#2563EB;
+
+    box-shadow:0 0 18px rgba(37,99,235,.6);
+
+}
+
+.graph-labels{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#94A3B8;
+
+    font-size:11px;
+
+}
+
+/* ==========================================
+   RECOMMENDATION CARDS
+========================================== */
+
+.recommend-card{
+
+    margin:0 20px 16px;
+
+    padding:18px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.recommend-card:hover{
+
+    border-color:#2563EB;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.recommend-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex:1;
+
+}
+
+.recommend-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+}
+
+.recommend-icon.green{
+
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+
+}
+
+.recommend-icon.blue{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+}
+
+.recommend-icon.purple{
+
+    background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+
+}
+
+.recommend-left h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+.recommend-left p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.recommend-card i.fa-chevron-right{
+
+    color:#94A3B8;
+
+}
+/* ==========================================
+   AI SECUREPAY PROTECTION CARD
+========================================== */
+
+.protection-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+    transition:.3s;
+
+}
+
+.protection-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.40);
+
+}
+
+.protection-left{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    flex:1;
+
+}
+
+/* ==========================================
+   PROTECTION ICON
+========================================== */
+
+.protection-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:26px;
+
+    flex-shrink:0;
+
+}
+
+.protection-left h2{
+
+    font-size:19px;
+
+    margin-bottom:8px;
+
+}
+
+.protection-left p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   LEARN MORE BUTTON
+========================================== */
+
+.learn-btn{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    color:#2563EB;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    white-space:nowrap;
+
+}
+
+.learn-btn:hover{
+
+    background:#E0F2FE;
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   SECURITY SUMMARY
+========================================== */
+
+.summary-card{
+
+    margin:20px;
+
+}
+
+.summary-item{
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    border-left:4px solid #2563EB;
+
+    transition:.3s;
+
+}
+
+.summary-item:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.summary-item i{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.summary-item h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.summary-item p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:25px 20px;
+
+    padding:18px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:#CBD5E1;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+footer i{
+
+    color:#22C55E;
+
+    margin-right:8px;
+
+}
+/* ==========================================
+   RISK METER ANIMATIONS
+========================================== */
+
+.meter{
+
+    animation:meterGlow 3s infinite alternate;
+
+}
+
+@keyframes meterGlow{
+
+    from{
+
+        box-shadow:0 0 15px rgba(37,99,235,.30);
+
+    }
+
+    to{
+
+        box-shadow:0 0 35px rgba(37,99,235,.55);
+
+    }
+
+}
+
+.needle{
+
+    animation:needleMove 2.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes needleMove{
+
+    0%{
+
+        transform:translateX(-50%) rotate(-60deg);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) rotate(-25deg);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) rotate(10deg);
+
+    }
+
+}
+
+/* ==========================================
+   SHIELD ANIMATION
+========================================== */
+
+.shield{
+
+    animation:shieldPulse 2s infinite;
+
+}
+
+@keyframes shieldPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================================
+   GRAPH ANIMATION
+========================================== */
+
+.dot{
+
+    animation:dotPulse 2s infinite;
+
+}
+
+.dot.active{
+
+    animation:activeDot 1.5s infinite;
+
+}
+
+.dot.large{
+
+    animation:largeDot 2s infinite;
+
+}
+
+@keyframes dotPulse{
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+@keyframes activeDot{
+
+    50%{
+
+        transform:scale(1.35);
+
+        box-shadow:0 0 20px rgba(34,197,94,.8);
+
+    }
+
+}
+
+@keyframes largeDot{
+
+    50%{
+
+        transform:scale(1.25);
+
+        box-shadow:0 0 22px rgba(37,99,235,.8);
+
+    }
+
+}
+
+/* ==========================================
+   CARD HOVER EFFECTS
+========================================== */
+
+.factor-card:hover .factor-icon,
+
+.recommend-card:hover .recommend-icon,
+
+.summary-item:hover i{
+
+    transform:rotate(8deg) scale(1.08);
+
+}
+
+.factor-icon,
+
+.recommend-icon,
+
+.summary-item i{
+
+    transition:.35s ease;
+
+}
+
+/* ==========================================
+   BADGE PULSE
+========================================== */
+
+.badge,
+
+.status{
+
+    animation:badgePulse 2.5s infinite;
+
+}
+
+@keyframes badgePulse{
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+}
+
+/* ==========================================
+   BUTTON EFFECTS
+========================================== */
+
+.learn-btn:active{
+
+    transform:scale(.96);
+
+}
+
+.info-btn:active,
+
+.back-btn:active{
+
+    transform:scale(.95);
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.top-bar{
+
+    gap:10px;
+
+}
+
+.page-title h1{
+
+    font-size:20px;
+
+}
+
+.page-title p{
+
+    font-size:12px;
+
+}
+
+.risk-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.risk-right{
+
+    margin-top:15px;
+
+}
+
+.score span{
+
+    font-size:40px;
+
+}
+
+.meter{
+
+    width:115px;
+
+    height:115px;
+
+}
+
+.meter::before{
+
+    width:82px;
+
+    height:82px;
+
+}
+
+.shield{
+
+    width:58px;
+
+    height:58px;
+
+    font-size:24px;
+
+}
+
+.factor-card{
+
+    padding:15px;
+
+}
+
+.factor-icon{
+
+    width:48px;
+
+    height:48px;
+
+    font-size:20px;
+
+}
+
+.activity-header{
+
+    flex-direction:column;
+
+}
+
+.trend-box{
+
+    width:100%;
+
+}
+
+.protection-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.protection-left{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.learn-btn{
+
+    width:100%;
+
+}
+
+.summary-item{
+
+    padding:15px;
+
+}
+
+.summary-item i{
+
+    width:46px;
+
+    height:46px;
+
+    font-size:18px;
+
+}
+
+}
+
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:pageLoad .5s ease;
+
+}
+
+@keyframes pageLoad{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0F172A;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL TRANSITIONS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+}
+
+/* ==========================================
+   REMOVE TAP HIGHLIGHT
+========================================== */
+
+*{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/* ==========================================
+   BUTTON ACTIVE EFFECT
+========================================== */
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+.factor-card:active,
+
+.recommend-card:active,
+
+.summary-item:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

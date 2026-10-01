@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Check Balance | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/check-balance.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+<div class="top-bar">
+
+<a href="dashboard.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div class="page-title">
+
+<h1>
+
+Check Balance
+
+</h1>
+
+<p>
+
+View account balance instantly
+
+</p>
+
+</div>
+
+<div class="logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<span>AI SecurePay</span>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+     BANK SELECTION
+========================================== -->
+
+<section class="bank-card">
+
+<h2>
+
+Select Your Bank
+
+</h2>
+
+<div class="bank-list">
+
+<label class="bank-option">
+
+<input
+type="radio"
+name="bank"
+value="SBI"
+checked>
+
+<div class="bank-info">
+
+<div class="bank-mark bank-sbi" aria-label="SBI bank icon">SBI</div>
+
+<div>
+
+<h3>
+
+State Bank of India
+
+</h3>
+
+<p>
+
+XXXX XXXX 4321
+
+</p>
+
+</div>
+
+</div>
+
+</label>
+
+<label class="bank-option">
+
+<input
+type="radio"
+name="bank"
+value="Axis">
+
+<div class="bank-info">
+
+<div class="bank-mark bank-axis" aria-label="Axis Bank icon">AXIS</div>
+
+<div>
+
+<h3>
+
+Axis Bank
+
+</h3>
+
+<p>
+
+XXXX XXXX 5678
+
+</p>
+
+</div>
+
+</div>
+
+</label>
+
+<label class="bank-option">
+
+<input
+type="radio"
+name="bank"
+value="HDFC">
+
+<div class="bank-info">
+
+<div class="bank-mark bank-hdfc" aria-label="HDFC Bank icon">HDFC</div>
+
+<div>
+
+<h3>
+
+HDFC Bank
+
+</h3>
+
+<p>
+
+XXXX XXXX 2468
+
+</p>
+
+</div>
+
+</div>
+
+</label>
+
+</div>
+
+<button id="verifyBtn">
+
+Continue
+
+</button>
+
+</section>
+  <!-- ==========================================
+     UPI PIN VERIFICATION POPUP
+========================================== -->
+
+<div id="upiPopup" class="popup">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </div>
+
+        <h2>
+
+            Verify Demo Access
+
+        </h2>
+
+        <p>
+
+            Enter demo code 1234 to view an illustrative balance. No bank is contacted.
+
+        </p>
+
+        <input
+            type="password"
+            id="upiPin"
+            maxlength="4"
+            placeholder="1234">
+
+        <small id="pinError">
+
+            Enter demo code 1234.
+
+        </small>
+
+        <div class="popup-buttons">
+
+            <button id="cancelPin">
+
+                Cancel
+
+            </button>
+
+            <button id="verifyPin">
+
+                Show Demo Balance
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     LOADING POPUP
+========================================== -->
+
+<div id="loadingPopup" class="popup">
+
+    <div class="popup-box loading-box">
+
+        <div class="loader"></div>
+
+        <h2>
+
+            Preparing Sample Balance...
+
+        </h2>
+
+        <p>
+
+            AI SecurePay is calculating from recorded demo transfers only.
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     BALANCE SECTION
+========================================== -->
+
+<section id="balanceSection" class="balance-card">
+
+    <div class="balance-header">
+
+        <div>
+
+            <h2 id="bankName">
+
+                State Bank of India
+
+            </h2>
+
+            <p id="accountNumber">
+
+                XXXX XXXX 4321
+
+            </p>
+
+        </div>
+
+        <span class="primary-tag">
+
+            Primary Account
+
+        </span>
+
+    </div>
+
+    <div class="balance-body">
+
+        <p>
+
+            Illustrative Demo Balance
+
+            <button id="toggleBalance">
+
+                <i class="fa-solid fa-eye"></i>
+
+            </button>
+
+        </p>
+
+        <h1 id="availableBalance">
+
+            ₹0.00
+
+        </h1>
+
+        <small id="lastUpdated">
+
+            Last updated: Just Now
+
+        </small>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     SECURITY CARD
+========================================== -->
+
+<section class="security-card">
+
+    <div class="security-icon">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+    </div>
+
+    <div class="security-content">
+
+        <h3>
+
+            Sample Balance Preview
+
+        </h3>
+
+        <p>
+
+            This demo uses no bank connection, banking credentials, or real UPI PIN.
+
+        </p>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</section>
+
+<!-- ==========================================
+     ACCOUNT DETAILS
+========================================== -->
+
+<section class="account-section">
+
+    <h2>
+
+        Account Details
+
+    </h2>
+
+    <div class="account-card">
+
+        <!-- Account Holder -->
+
+        <div class="detail-row">
+
+            <div class="detail-icon">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+            <div class="detail-info">
+
+                <small>
+
+                    Account Holder Name
+
+                </small>
+
+                <h3 id="holderName">
+
+                    Deepika R
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <!-- Account Number -->
+
+        <div class="detail-row">
+
+            <div class="detail-icon">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+            </div>
+
+            <div class="detail-info">
+
+                <small>
+
+                    Account Number
+
+                </small>
+
+                <h3 id="accountNo">
+
+                    XXXX XXXX 4321
+
+                </h3>
+
+            </div>
+
+            <button class="copy-btn"
+                    data-copy="accountNo">
+
+                <i class="fa-regular fa-copy"></i>
+
+            </button>
+
+        </div>
+
+        <!-- IFSC -->
+
+        <div class="detail-row">
+
+            <div class="detail-icon">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <div class="detail-info">
+
+                <small>
+
+                    IFSC Code
+
+                </small>
+
+                <h3 id="ifscCode">
+
+                    SBIN0001234
+
+                </h3>
+
+            </div>
+
+            <button class="copy-btn"
+                    data-copy="ifscCode">
+
+                <i class="fa-regular fa-copy"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Branch -->
+
+        <div class="detail-row">
+
+            <div class="detail-icon">
+
+                <i class="fa-solid fa-building"></i>
+
+            </div>
+
+            <div class="detail-info">
+
+                <small>
+
+                    Branch
+
+                </small>
+
+                <h3 id="branchName">
+
+                    Visakhapatnam Main Branch
+
+                </h3>
+
+            </div>
+
+            <button class="copy-btn"
+                    data-copy="branchName">
+
+                <i class="fa-regular fa-copy"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     BALANCE ALERT CARD
+========================================== -->
+
+<section class="alert-card">
+
+    <div class="alert-left">
+
+        <div class="alert-icon">
+
+            <i class="fa-solid fa-bell"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Enable Balance Alerts
+
+            </h3>
+
+            <p>
+
+                Get notified about low balance,
+                credits, debits and large transactions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="enableAlertBtn">
+
+        Enable Now
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     REFRESH BALANCE
+========================================== -->
+
+<section class="refresh-section">
+
+    <button id="refreshBtn">
+
+        <i class="fa-solid fa-rotate-right"></i>
+
+        Refresh Balance
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <i class="fa-solid fa-lock"></i>
+
+    <span>
+
+        AI SecurePay Demo • No bank is connected
+
+    </span>
+
+</footer>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/check-balance.js"></script>
+
+</body>
+
+</html>

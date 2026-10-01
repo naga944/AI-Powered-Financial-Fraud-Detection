@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Transaction History | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/transaction-history.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <!-- Back Button -->
+
+        <a href="dashboard.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <!-- Page Title -->
+
+        <div class="title">
+
+            <h1>
+
+                Transaction History
+
+            </h1>
+
+            <p>
+
+                View all your transactions
+
+            </p>
+
+        </div>
+
+        <!-- Filter -->
+
+        <button
+            class="filter-btn">
+
+            <i class="fa-solid fa-sliders"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     SEARCH BAR
+========================================== -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search transactions, contacts or UPI ID">
+
+        <button class="calendar-btn">
+
+            <i class="fa-regular fa-calendar-days"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FILTER TABS
+========================================== -->
+
+<section class="tabs-section">
+
+    <button
+        class="tab active">
+
+        All
+
+    </button>
+
+    <button
+        class="tab">
+
+        Money Sent
+
+    </button>
+
+    <button
+        class="tab">
+
+        Money Received
+
+    </button>
+
+    <button
+        class="tab">
+
+        Scan & Pay
+
+    </button>
+
+    <button
+        class="tab">
+
+        Bank Transfer
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     TODAY
+========================================== -->
+
+<section class="transaction-section">
+
+<h2>
+
+Today
+
+</h2>
+  <!-- ==========================================
+     TRANSACTION 1
+========================================== -->
+
+<div class="transaction-card sent">
+
+    <div class="left-section">
+
+        <div class="avatar purple">
+
+            AS
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Paid to Amit Sharma
+
+            </h3>
+
+            <p>
+
+                UPI ID : amitsharma@oksbi
+
+            </p>
+
+            <span>
+
+                Today • 10:32 AM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="debit">
+
+            - ₹850.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 2
+========================================== -->
+
+<div class="transaction-card received">
+
+    <div class="left-section">
+
+        <div class="avatar green">
+
+            PR
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Received from Priya Reddy
+
+            </h3>
+
+            <p>
+
+                UPI ID : priyareddy@okicici
+
+            </p>
+
+            <span>
+
+                Today • 09:18 AM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="credit">
+
+            + ₹1,200.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 3
+========================================== -->
+
+<div class="transaction-card sent">
+
+    <div class="left-section">
+
+        <div class="avatar blue">
+
+            RD
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Paid to Reliance Digital
+
+            </h3>
+
+            <p>
+
+                UPI ID : reliance@icici
+
+            </p>
+
+            <span>
+
+                Today • 08:45 AM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="debit">
+
+            - ₹2,499.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     YESTERDAY
+========================================== -->
+
+<section class="transaction-section">
+
+<h2>
+
+Yesterday
+
+</h2>
+  <!-- ==========================================
+     TRANSACTION 4
+========================================== -->
+
+<div class="transaction-card sent">
+
+    <div class="left-section">
+
+        <div class="avatar orange">
+
+            BK
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Paid to BookMyShow
+
+            </h3>
+
+            <p>
+
+                UPI ID : bookmyshow@ybl
+
+            </p>
+
+            <span>
+
+                Yesterday • 07:30 PM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="debit">
+
+            - ₹350.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 5
+========================================== -->
+
+<div class="transaction-card bank">
+
+    <div class="left-section">
+
+        <div class="avatar cyan">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Transferred to HDFC Bank
+
+            </h3>
+
+            <p>
+
+                A/C No. •••• 5678
+
+            </p>
+
+            <span>
+
+                Yesterday • 04:22 PM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="debit">
+
+            - ₹5,000.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION 6
+========================================== -->
+
+<div class="transaction-card received">
+
+    <div class="left-section">
+
+        <div class="avatar purple">
+
+            NS
+
+        </div>
+
+        <div class="details">
+
+            <h3>
+
+                Received from Neha Singh
+
+            </h3>
+
+            <p>
+
+                UPI ID : nehas@okaxis
+
+            </p>
+
+            <span>
+
+                Yesterday • 11:05 AM
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="right-section">
+
+        <h3 class="credit">
+
+            + ₹750.00
+
+        </h3>
+
+        <p>
+
+            SBI •••• 4321
+
+        </p>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     MONTHLY SUMMARY
+========================================== -->
+
+<section class="summary-card">
+
+    <div class="summary-left">
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Summary
+
+            </h3>
+
+            <p>
+
+                This Month
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-right">
+
+        <div>
+
+            <span>
+
+                Money In
+
+            </span>
+
+            <h3 class="credit">
+
+                ₹4,250.00
+
+            </h3>
+
+        </div>
+
+        <div>
+
+            <span>
+
+                Money Out
+
+            </span>
+
+            <h3 class="debit">
+
+                ₹8,699.00
+
+            </h3>
+
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="bottom-nav">
+
+    <!-- Home -->
+
+    <a href="dashboard.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+    <!-- Search -->
+
+    <a href="search.html">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <span>Search</span>
+
+    </a>
+
+    <!-- Scanner -->
+
+    <a href="payment-options.html">
+
+        <i class="fa-solid fa-qrcode"></i>
+
+        <span>Scanner</span>
+
+    </a>
+
+    <!-- Alerts -->
+
+    <a href="fraud-alerts.html">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>Alerts</span>
+
+    </a>
+
+    <!-- History -->
+
+    <a href="transaction-history.html" class="active">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        <span>History</span>
+
+    </a>
+
+</nav>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/transaction-history.js"></script>
+
+</body>
+
+</html>

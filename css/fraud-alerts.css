@@ -1,0 +1,1672 @@
+/* ==========================================
+   AI SecurePay - Fraud Alerts
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+.back-btn,
+
+.notification-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#FFFFFF;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.back-btn:hover,
+
+.notification-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.page-title{
+
+    flex:1;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.page-title h1 i{
+
+    color:#EF4444;
+
+    margin-right:8px;
+
+}
+
+.page-title p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   NOTIFICATION BADGE
+========================================== */
+
+#alertCount{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-5px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+    font-size:11px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   AI PROTECTION CARD
+========================================== */
+
+.protection-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    border-radius:24px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    display:flex;
+
+    gap:18px;
+
+    box-shadow:0 18px 35px rgba(37,99,235,.30);
+
+}
+
+.shield-image{
+
+    width:75px;
+
+    height:75px;
+
+    min-width:75px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    color:#FFFFFF;
+
+}
+
+.protection-content{
+
+    flex:1;
+
+}
+
+.protected-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    background:#22C55E;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+.protection-content h2{
+
+    font-size:21px;
+
+    margin-bottom:10px;
+
+}
+
+.protection-content p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================
+   MONITOR GRID
+========================================== */
+
+.monitor-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+.monitor-grid div{
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:14px;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+.monitor-grid i{
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+}
+
+.monitor-grid small{
+
+    display:block;
+
+    color:#DBEAFE;
+
+    font-size:11px;
+
+}
+
+.monitor-grid span{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+/* ==========================================
+   ALERT SUMMARY
+========================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin:20px;
+
+}
+
+.summary-card{
+
+    padding:20px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:2px solid transparent;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.summary-card i{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+.summary-card h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.summary-card p{
+
+    font-size:13px;
+
+    color:#E2E8F0;
+
+}
+
+/* ==========================================
+   SUMMARY CARD COLORS
+========================================== */
+
+.summary-card.high{
+
+    background:linear-gradient(135deg,#991B1B,#EF4444);
+
+}
+
+.summary-card.medium{
+
+    background:linear-gradient(135deg,#B45309,#F59E0B);
+
+}
+
+.summary-card.low{
+
+    background:linear-gradient(135deg,#15803D,#22C55E);
+
+}
+
+.summary-card.total{
+
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
+
+}
+
+/* ==========================================
+   SEARCH SECTION
+========================================== */
+
+.search-section{
+
+    margin:20px;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#1E293B;
+
+    padding:15px 18px;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+}
+
+.search-box i{
+
+    color:#94A3B8;
+
+    font-size:18px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#64748B;
+
+}
+
+/* ==========================================
+   FILTER BUTTONS
+========================================== */
+
+.filter-row{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.filter-btn{
+
+    flex:1;
+
+    min-width:80px;
+
+    border:none;
+
+    background:#1E293B;
+
+    color:#CBD5E1;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.filter-btn.active{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+.filter-btn:hover{
+
+    background:#1D4ED8;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   ALERT SECTION HEADER
+========================================== */
+
+.alerts-section{
+
+    margin:20px;
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.section-header h2{
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+#viewAllBtn{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+#viewAllBtn:hover{
+
+    background:#1D4ED8;
+
+}
+/* ==========================================
+   ALERT CONTAINER
+========================================== */
+
+#alertContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* ==========================================
+   ALERT CARD
+========================================== */
+
+.alert-card{
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    border-left:5px solid #EF4444;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.alert-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.alert-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:16px;
+
+}
+
+.alert-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.alert-avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.alert-user h3{
+
+    font-size:17px;
+
+    margin-bottom:4px;
+
+}
+
+.alert-user p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   RISK BADGES
+========================================== */
+
+.risk-badge{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.high-risk{
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+}
+
+.medium-risk{
+
+    background:#F59E0B;
+
+    color:#FFFFFF;
+
+}
+
+.low-risk{
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   ALERT DETAILS
+========================================== */
+
+.alert-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:16px;
+
+}
+
+.detail-box{
+
+    background:#111827;
+
+    border-radius:14px;
+
+    padding:12px;
+
+}
+
+.detail-box small{
+
+    display:block;
+
+    color:#94A3B8;
+
+    font-size:11px;
+
+    margin-bottom:6px;
+
+}
+
+.detail-box span{
+
+    color:#FFFFFF;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   ALERT ACTIONS
+========================================== */
+
+.alert-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:18px;
+
+}
+
+.alert-actions button{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.resolve-btn{
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+}
+
+.resolve-btn:hover{
+
+    background:#16A34A;
+
+}
+
+.ignore-btn{
+
+    background:#334155;
+
+    color:#FFFFFF;
+
+}
+
+.ignore-btn:hover{
+
+    background:#475569;
+
+}
+
+/* ==========================================
+   EMPTY ALERT
+========================================== */
+
+.empty-alert{
+
+    display:none;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+}
+
+.empty-alert i{
+
+    font-size:55px;
+
+    color:#22C55E;
+
+    margin-bottom:18px;
+
+}
+
+.empty-alert h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.empty-alert p{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+/* ==========================================
+   STAY SAFE CARD
+========================================== */
+
+.safety-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.safety-card:hover{
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.safety-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    margin-bottom:22px;
+
+}
+
+.safety-icon{
+
+    width:65px;
+
+    height:65px;
+
+    min-width:65px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:28px;
+
+}
+
+.safety-header h2{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+.safety-header p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   SECURITY TIPS
+========================================== */
+
+.tips-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.tip-item{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.tip-item:hover{
+
+    transform:translateY(-4px);
+
+    background:#1F2937;
+
+}
+
+.tip-item i{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0 auto 14px;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.tip-item h4{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+.tip-item p{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   AI SECURITY STATUS
+========================================== */
+
+.security-status{
+
+    margin:20px;
+
+}
+
+.status-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    border-left:4px solid #2563EB;
+
+    transition:.3s;
+
+}
+
+.status-box:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.status-box i{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+    min-width:55px;
+
+}
+
+.status-box h3{
+
+    font-size:16px;
+
+    margin-bottom:6px;
+
+}
+
+.status-box p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+/* ==========================================
+   HELP CARD
+========================================== */
+
+.help-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 18px 35px rgba(37,99,235,.30);
+
+}
+
+.help-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    flex:1;
+
+}
+
+.help-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:28px;
+
+}
+
+.help-left h2{
+
+    font-size:20px;
+
+    margin-bottom:6px;
+
+}
+
+.help-left p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+#supportBtn{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    color:#2563EB;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#supportBtn:hover{
+
+    background:#E0F2FE;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   REPORT FRAUD CARD
+========================================== */
+
+.report-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.report-card:hover{
+
+    border-color:#EF4444;
+
+    box-shadow:0 15px 30px rgba(239,68,68,.20);
+
+}
+
+.report-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#EF4444,#DC2626);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:28px;
+
+    min-width:65px;
+
+}
+
+.report-content{
+
+    flex:1;
+
+}
+
+.report-content h3{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+.report-content p{
+
+    color:#CBD5E1;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+#reportBtn{
+
+    border:none;
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#reportBtn:hover{
+
+    background:#DC2626;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:20px;
+
+    padding:18px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+footer i{
+
+    color:#22C55E;
+
+    margin-right:8px;
+
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.06);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.protected-tag{
+
+    animation:pulse 2s infinite;
+
+}
+
+#alertCount{
+
+    animation:pulse 1.5s infinite;
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.top-bar{
+
+    gap:10px;
+
+}
+
+.page-title h1{
+
+    font-size:20px;
+
+}
+
+.page-title p{
+
+    font-size:12px;
+
+}
+
+.protection-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.monitor-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.summary-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.filter-row{
+
+    flex-direction:column;
+
+}
+
+.filter-btn{
+
+    width:100%;
+
+}
+
+.alert-header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.alert-details{
+
+    grid-template-columns:1fr;
+
+}
+
+.alert-actions{
+
+    flex-direction:column;
+
+}
+
+.tips-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.help-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.help-left{
+
+    flex-direction:column;
+
+}
+
+.report-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+#supportBtn,
+
+#reportBtn{
+
+    width:100%;
+
+}
+
+}
+
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:fadeInUp .6s ease;
+
+}
+
+@keyframes fadeInUp{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0F172A;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL EFFECTS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+.alert-card:active,
+
+.summary-card:active,
+
+.tip-item:active,
+
+.status-box:active,
+
+.help-card:active,
+
+.report-card:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.summary-card:hover,
+
+.alert-card:hover,
+
+.tip-item:hover,
+
+.status-box:hover,
+
+.help-card:hover,
+
+.report-card:hover{
+
+    box-shadow:0 15px 30px rgba(37,99,235,.25);
+
+}
+
+/* ==========================================
+   TEXT SELECTION
+========================================== */
+
+::selection{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

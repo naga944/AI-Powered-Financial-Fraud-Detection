@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scan & Pay | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/payment-options.css">
+    <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="top-bar">
+
+            <!-- Back Button -->
+
+            <a href="dashboard.html" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </a>
+
+            <!-- AI SecurePay -->
+
+            <div class="logo">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>AI SecurePay</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= PAGE TITLE ================= -->
+
+    <section class="title-section">
+
+        <h1>Scan & Pay</h1>
+
+        <p>
+
+            Scan a signed SecurePay QR to prepare a demo transfer. Other QR codes are rejected.
+
+        </p>
+
+    </section>
+
+    <!-- ================= QR TABS ================= -->
+
+    <section class="scanner-tabs">
+
+        <button class="tab active" id="scanTab">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            Scan QR
+
+        </button>
+
+        <button class="tab" id="myQRTab">
+
+            <i class="fa-solid fa-border-all"></i>
+
+            My QR
+
+        </button>
+
+    </section>
+
+    <!-- ================= QR SCANNER ================= -->
+
+    <section class="scanner-section">
+
+        <div class="scanner-box">
+
+            <!-- Scanner Frame -->
+
+            <div class="scanner-frame">
+
+                <!-- Corner Borders -->
+
+                <span class="corner top-left"></span>
+
+                <span class="corner top-right"></span>
+
+                <span class="corner bottom-left"></span>
+
+                <span class="corner bottom-right"></span>
+
+                <img id="sampleQr" src="/api/qr/demo.png" alt="Signed SecurePay demo recipient QR code" class="qr-image">
+
+                <!-- Scanner Line -->
+
+                <div class="scan-line"></div>
+
+            </div>
+
+            <div class="qr-controls">
+                <button class="flash-btn" id="startCamera" type="button"><i class="fa-solid fa-camera"></i> Use camera</button>
+                <label class="flash-btn" for="qrFile"><i class="fa-regular fa-image"></i> Choose QR image</label>
+                <input id="qrFile" type="file" accept="image/*" hidden>
+            </div>
+            <div id="qrReader" hidden></div>
+            <p id="qrStatus" class="flash-text" role="status" aria-live="polite">Only SecurePay-signed codes work here. Use the demo code, camera, or choose a SecurePay QR image.</p>
+
+        </div>
+
+    </section>
+      <!-- ================= SECURITY CARD ================= -->
+
+    <section class="security-card">
+
+        <div class="security-left">
+
+            <div class="security-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Secure. Fast. Reliable.</h3>
+
+                <p>
+
+                    Your transactions are protected with
+                    AI-powered fraud detection.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="security-arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOW TO SCAN ================= -->
+
+    <section class="how-to-scan">
+
+        <div class="section-heading">
+
+            <h3>HOW TO SCAN & PAY</h3>
+
+        </div>
+
+        <div class="steps-container">
+
+            <!-- STEP 1 -->
+
+            <div class="step-card">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-expand"></i>
+
+                </div>
+
+                <h4>1. Scan</h4>
+
+                <p>
+
+                    Scan the merchant's QR Code
+
+                </p>
+
+            </div>
+
+            <!-- STEP 2 -->
+
+            <div class="step-card">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                </div>
+
+                <h4>2. Enter Amount</h4>
+
+                <p>
+
+                    Verify amount and payment details
+
+                </p>
+
+            </div>
+
+            <!-- STEP 3 -->
+
+            <div class="step-card">
+
+                <div class="step-icon">
+
+                    <i class="fa-solid fa-shield-check"></i>
+
+                </div>
+
+                <h4>3. Review & Record</h4>
+
+                <p>
+
+                    Risk checks are saved with the demo transaction
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+      <!-- ================= RECENT PAYEES ================= -->
+
+    <section class="recent-payees">
+
+        <div class="section-header">
+
+            <h2>Recent Payees</h2>
+
+            <a href="transaction-history.html">View All</a>
+
+        </div>
+
+        <div class="payee-list">
+
+            <!-- Payee 1 -->
+
+            <div class="payee-card">
+
+                <div class="avatar purple">
+
+                    AM
+
+                </div>
+
+                <h4>Amit Mart</h4>
+
+                <p>****7452</p>
+
+            </div>
+
+            <!-- Payee 2 -->
+
+            <div class="payee-card">
+
+                <div class="avatar green">
+
+                    SM
+
+                </div>
+
+                <h4>Sunil Store</h4>
+
+                <p>****6321</p>
+
+            </div>
+
+            <!-- Payee 3 -->
+
+            <div class="payee-card">
+
+                <div class="avatar blue">
+
+                    RK
+
+                </div>
+
+                <h4>Rahul Kirana</h4>
+
+                <p>****9187</p>
+
+            </div>
+
+            <!-- Payee 4 -->
+
+            <div class="payee-card">
+
+                <div class="avatar orange">
+
+                    TP
+
+                </div>
+
+                <h4>Tea Point</h4>
+
+                <p>****4532</p>
+
+            </div>
+
+            <!-- Add New -->
+
+            <div class="payee-card add-payee">
+
+                <div class="avatar add">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                </div>
+
+                <h4>Add New</h4>
+
+                <p>Payee</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+      <!-- ================= AI SAFETY NOTICE ================= -->
+
+    <section class="ai-safety">
+
+        <div class="safety-card">
+
+            <div class="safety-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div class="safety-content">
+
+                <h3>AI Fraud Protection Enabled</h3>
+
+                <p>
+
+                    Every payment is analyzed using Artificial Intelligence.
+
+                    If a suspicious transaction is detected, the payment will be
+
+                    temporarily held and you'll receive an instant verification request.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= PAYMENT INFORMATION ================= -->
+
+    <section class="payment-info">
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Secure Payments</h3>
+
+                <p>
+
+                    Payments above <strong>₹5,000</strong> require user verification.
+
+                </p>
+
+                <p>
+
+                    High-risk transactions are automatically flagged by the AI Fraud Detection Engine.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+
+    <nav class="bottom-nav">
+
+        <a href="dashboard.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+        <a href="search.html">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>Search</span>
+
+        </a>
+
+        <a href="payment-options.html" class="active">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            <span>Scanner</span>
+
+        </a>
+
+        <a href="fraud-alerts.html">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>Alerts</span>
+
+        </a>
+
+        <a href="transaction-history.html">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/auth-client.js"></script>
+<script src="/vendor/html5-qrcode/html5-qrcode.min.js"></script>
+<script src="js/payment-options.js"></script>
+
+</body>
+
+</html>

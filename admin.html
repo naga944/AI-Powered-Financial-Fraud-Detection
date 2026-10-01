@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Console | AI SecurePay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #030d1d;
+      --bg-2: #071a2d;
+      --panel: rgba(10, 23, 39, 0.92);
+      --panel-strong: rgba(12, 28, 47, 0.98);
+      --sidebar: rgba(7, 18, 30, 0.96);
+      --border: rgba(116, 165, 255, 0.22);
+      --muted: #9bb3d1;
+      --text: #edf5ff;
+      --blue: #40b6ff;
+      --blue-2: #4877ff;
+      --cyan: #57d7ff;
+      --green: #37d39b;
+      --amber: #ffbf47;
+      --red: #ff5e64;
+      --red-2: #ff3d5e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, rgba(17, 67, 123, 0.38), transparent 30%),
+                  linear-gradient(180deg, var(--bg) 0%, #07182d 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .admin-shell {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 18px;
+      gap: 18px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: rgba(9, 19, 32, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 20px 14px 18px;
+      box-shadow: 0 24px 40px rgba(0,0,0,0.28);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      box-shadow: 0 12px 25px rgba(57, 118, 255, 0.45);
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.73rem;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: #dfeeff;
+      text-decoration: none;
+      border: 1px solid transparent;
+      background: transparent;
+      transition: 0.2s ease;
+      font-weight: 500;
+    }
+
+    .nav-item i {
+      width: 18px;
+      text-align: center;
+      color: #95baf5;
+    }
+
+    .nav-item.active {
+      background: rgba(62, 139, 255, 0.12);
+      border-color: rgba(95, 165, 255, 0.38);
+      box-shadow: inset 0 0 0 1px rgba(98, 156, 255, 0.16);
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.02);
+      border-color: rgba(255,255,255,0.05);
+    }
+
+    .main-panel {
+      flex: 1;
+      background: rgba(8, 18, 31, 0.68);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 18px 18px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 8px 18px;
+    }
+
+    .topbar h1 {
+      font-size: clamp(1.8rem, 2vw, 2.5rem);
+      font-weight: 700;
+    }
+
+    .topbar-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(36, 96, 153, 0.18);
+      border: 1px solid rgba(104, 178, 255, 0.2);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .dashboard-content {
+      display: grid;
+      gap: 20px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(170px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: linear-gradient(180deg, rgba(17, 34, 55, 0.95), rgba(11, 24, 39, 0.9));
+      border: 1px solid rgba(130, 178, 255, 0.22);
+      border-radius: 18px;
+      padding: 18px 18px 14px;
+      min-height: 120px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 20px rgba(3, 9, 18, 0.14);
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(91, 136, 255, 0.14);
+      border: 1px solid rgba(145, 188, 255, 0.2);
+      color: #8ec9ff;
+      font-size: 0.95rem;
+    }
+
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .stat-card .value {
+      font-size: clamp(2rem, 2.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-card .trend {
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-top: 8px;
+    }
+
+    .positive { color: var(--green); }
+    .negative { color: var(--red); }
+    .warning { color: var(--amber); }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(13, 26, 42, 0.96), rgba(9, 21, 33, 0.94));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 18px 12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .filter-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 220px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th, td {
+      padding: 12px 8px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #eaf5ff;
+      font-size: 0.94rem;
+    }
+
+    th {
+      color: #b8d0f1;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      min-width: 90px;
+    }
+
+    .status-genuine { background: rgba(42, 199, 132, 0.14); color: #5fe1a1; }
+    .status-verified { background: rgba(84, 159, 255, 0.12); color: #7ec4ff; }
+    .status-fraud { background: rgba(255, 92, 110, 0.12); color: #ff7d8a; }
+    .status-blocked { background: rgba(245, 172, 74, 0.12); color: #f3b96d; }
+    .status-low { background: rgba(46, 204, 113, 0.12); color: #59de95; }
+    .status-medium { background: rgba(255, 203, 74, 0.12); color: #ffcb52; }
+    .status-high { background: rgba(255, 96, 112, 0.12); color: #ff7d8d; }
+
+    .pin-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 8, 16, 0.78);
+      display: grid;
+      place-items: center;
+      z-index: 40;
+      backdrop-filter: blur(6px);
+      transition: opacity 0.2s ease;
+    }
+
+    .pin-overlay.hidden { display: none; }
+
+    .pin-box {
+      width: min(420px, calc(100vw - 30px));
+      background: rgba(8, 20, 35, 0.96);
+      border: 1px solid rgba(108, 159, 255, 0.34);
+      border-radius: 26px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.38);
+      padding: 30px 24px 22px;
+      text-align: center;
+    }
+
+    .pin-icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(64, 182, 255, 0.22), rgba(50, 58, 91, 0.12) 60%);
+      border: 1px solid rgba(136, 200, 255, 0.34);
+      font-size: 34px;
+      color: var(--blue);
+    }
+
+    .pin-box h2 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      margin-bottom: 10px;
+      letter-spacing: -0.04em;
+    }
+
+    .pin-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .pin-form {
+      display: grid;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .pin-form label {
+      color: #dfefff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .pin-form input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(145, 188, 255, 0.25);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 1.05rem;
+      outline: none;
+    }
+
+    .pin-form button {
+      border: none;
+      border-radius: 12px;
+      padding: 15px 16px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .pin-form button:hover { transform: translateY(-1px); }
+
+    .pin-error {
+      min-height: 22px;
+      color: #ff9ca6;
+      font-size: 0.86rem;
+      margin-top: 4px;
+    }
+
+    .user-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #97d7ff, #6b8eff);
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: rgba(11, 25, 41, 0.95);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .mini-card .kicker {
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-bottom: 10px;
+    }
+
+    .mini-card .big {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .bank-panel {
+      margin-top: 6px;
+    }
+
+    .bank-layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .bank-list {
+      display: grid;
+      gap: 12px;
+      max-height: 420px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .bank-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(14, 27, 49, 0.85);
+      border: 1px solid rgba(118, 172, 255, 0.18);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: 0.2s ease;
+    }
+
+    .bank-item.active {
+      border-color: rgba(87, 196, 255, 0.6);
+      background: rgba(40, 105, 185, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(87, 196, 255, 0.18);
+    }
+
+    .bank-logo {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(98, 168, 255, 0.18), rgba(63, 118, 255, 0.08));
+      border: 1px solid rgba(145, 192, 255, 0.2);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--blue);
+      overflow: hidden;
+      font-size: 0.64rem;
+      letter-spacing: 0;
+    }
+
+    .bank-name {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .bank-type {
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .bank-detail {
+      background: rgba(12, 27, 44, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 420px;
+    }
+
+    .bank-detail-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+
+    .bank-detail-logo {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(90, 160, 255, 0.25), rgba(74, 93, 255, 0.12));
+      border: 1px solid rgba(145, 192, 255, 0.25);
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 1.02rem;
+      font-weight: 800;
+    }
+
+    .bank-logo img, .bank-detail-logo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      border-radius: inherit;
+      background: #fff;
+      object-fit: contain;
+    }
+
+    .bank-detail-title {
+      font-size: clamp(1.7rem, 2.3vw, 2.3rem);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .bank-detail-metadata {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 12px 18px;
+      margin-top: 10px;
+    }
+
+    .meta-box {
+      background: rgba(14, 27, 49, 0.72);
+      border: 1px solid rgba(122, 166, 255, 0.14);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      margin-bottom: 6px;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .bank-detail-copy {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 18px 0 8px;
+    }
+
+    .opportunity-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .opportunity-item {
+      background: rgba(11, 22, 35, 0.8);
+      border: 1px solid rgba(117, 160, 255, 0.16);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .opportunity-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .opportunity-item span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .activity-table td {
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .clickable-row { cursor: pointer; }
+    .clickable-row:hover { background: rgba(65, 160, 220, .1); }
+    .customer-cell, .transaction-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 32px;
+    }
+    .mini-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(143, 208, 255, 0.35), rgba(93, 116, 255, 0.18));
+      border: 1px solid rgba(150, 196, 255, 0.28);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .detail-hero {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(19, 32, 48, 0.9), rgba(12, 24, 39, 0.8));
+    }
+    .detail-hero-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #5eb8ff, #4a6df5);
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .detail-hero-meta h3 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+    .detail-hero-meta p {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .admin-detail-dialog {
+      width: min(760px, calc(100vw - 32px));
+      max-width: none;
+      max-height: min(86vh, 850px);
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      color: var(--text);
+      background: var(--panel-strong);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 28px 80px rgba(0,0,0,.5);
+    }
+    .admin-detail-dialog::backdrop { background: rgba(2,8,16,.76); backdrop-filter: blur(5px); }
+    .admin-detail-content { padding: 22px; }
+    .admin-detail-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    .admin-detail-heading h2 { font-size:20px; }
+    .admin-detail-close { width:38px; height:38px; border:1px solid var(--border); border-radius:8px; background:transparent; color:var(--text); cursor:pointer; }
+    .admin-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:18px; }
+    .admin-detail-grid div { padding:13px; border:1px solid var(--border); border-radius:9px; background:rgba(18,35,54,.75); }
+    .admin-detail-grid dt { margin-bottom:6px; color:var(--muted); font-size:11px; }
+    .admin-detail-grid dd { margin:0; font-size:13px; overflow-wrap:anywhere; }
+    .admin-detail-subtitle { margin:20px 0 9px; font-size:14px; }
+    .admin-detail-chart { position:relative; height:190px; }
+    .admin-detail-reasons { margin:8px 0 0; padding-left:20px; color:#d8e8f8; line-height:1.7; }
+    @media(max-width:560px){ .admin-detail-grid{grid-template-columns:1fr;} .admin-detail-content{padding:16px;} }
+
+    @media (max-width: 1100px) {
+      .admin-shell { flex-direction: column; }
+      .sidebar { width: 100%; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(150px,1fr)); }
+      .cards-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .admin-shell { padding: 12px; }
+      .sidebar, .main-panel { border-radius: 18px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .nav-item { padding: 11px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand-row">
+        <div class="brand-badge"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <div class="brand-title">FraudShield</div>
+          <div class="brand-sub">AI Protection</div>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <a href="#overview" class="nav-item active"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="#customers" class="nav-item"><i class="fa-solid fa-users"></i> Users</a>
+        <a href="#transactions" class="nav-item"><i class="fa-solid fa-arrow-right-arrow-left"></i> Transactions</a>
+        <a href="#fraud-cases" class="nav-item"><i class="fa-solid fa-triangle-exclamation"></i> Fraud Cases</a>
+        <a href="#fraud-cases" class="nav-item"><i class="fa-solid fa-user-shield"></i> High Risk Users</a>
+        <a href="#accessLogs" class="nav-item"><i class="fa-solid fa-file-lines"></i> Reports</a>
+        <a href="#overview" class="nav-item"><i class="fa-solid fa-chart-column"></i> Analytics</a>
+        <a href="#fraud-cases" class="nav-item"><i class="fa-solid fa-bell"></i> Alerts</a>
+        <a href="#banks" class="nav-item"><i class="fa-solid fa-gear"></i> Bank Directory</a>
+        <a href="#accessLogs" class="nav-item"><i class="fa-solid fa-clock-rotate-left"></i> Logs</a>
+        <a href="#" class="nav-item" id="adminLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <div class="topbar">
+        <h1>Admin Dashboard</h1>
+        <div class="topbar-meta">
+          <span class="badge-pill"><i class="fa-solid fa-database"></i> Sandbox data</span>
+          <div class="user-row">
+            <div class="avatar">A</div>
+            <span>Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="adminDashboardContent" class="dashboard-content hidden">
+        <div class="stats-grid" id="overview">
+          <div class="stat-card">
+            <div class="stat-top"><span class="stat-icon"><i class="fa-solid fa-users"></i></span></div>
+            <div class="label">Total Users</div>
+            <div id="totalUsers" class="value">0</div>
+            <div class="trend">Registered customer profiles</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><span class="stat-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span></div>
+            <div class="label">Total Transactions</div>
+            <div id="totalTransactions" class="value">0</div>
+            <div class="trend">Stored sandbox transfers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><span class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></span></div>
+            <div class="label">Fraud Cases</div>
+            <div id="fraudCases" class="value">0</div>
+            <div class="trend">High-risk transfers requiring review</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-top"><span class="stat-icon"><i class="fa-solid fa-user-shield"></i></span></div>
+            <div class="label">High Risk Users</div>
+            <div id="highRiskUsers" class="value">0</div>
+            <div class="trend">Customers with high-risk transfers</div>
+          </div>
+        </div>
+
+        <div class="cards-row" id="fraud-cases">
+          <div class="panel">
+            <div class="panel-header">
+              <span>Transaction Overview</span>
+              <span class="filter-chip">This Week</span>
+            </div>
+            <canvas id="overviewChart" height="180"></canvas>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span>Transactions by Status</span>
+              <span class="filter-chip">This Week</span>
+            </div>
+            <canvas id="statusChart" height="180"></canvas>
+          </div>
+        </div>
+
+        <div class="cards-row">
+          <div class="panel">
+            <div class="panel-header">
+              <span>Fraud Cases Trend</span>
+              <span class="filter-chip">This Week</span>
+            </div>
+            <canvas id="fraudTrendChart" height="170"></canvas>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span>Transactions by Risk Level</span>
+              <span class="filter-chip">This Week</span>
+            </div>
+            <canvas id="categoryChart" height="170"></canvas>
+          </div>
+        </div>
+
+        <div class="panel bank-panel" id="banks">
+          <div class="panel-header">
+            <span>Bank Directory</span>
+            <span class="filter-chip">Bank directory</span>
+          </div>
+          <div class="bank-layout">
+            <div id="bankList" class="bank-list"></div>
+            <div id="bankDetail" class="bank-detail">
+              <div class="bank-detail-head">
+                <div class="bank-detail-logo">S</div>
+                <div>
+                  <div class="bank-detail-title">Select a Bank</div>
+                  <div class="bank-type">Choose any bank from the list</div>
+                </div>
+              </div>
+              <div class="bank-detail-copy">Click a bank name on the left to view bank details, headquarters, website, and opportunity information.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="customers">
+          <div class="panel-header">
+            <span>Customer Directory</span>
+            <span class="filter-chip">Registered Accounts</span>
+          </div>
+          <div class="table-wrap">
+            <table class="activity-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Joined</th>
+                </tr>
+              </thead>
+              <tbody id="customerTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel" id="transactions">
+          <div class="panel-header">
+            <span>Recent Transactions</span>
+            <span class="filter-chip">Latest 100</span>
+          </div>
+          <div class="table-wrap">
+            <table class="activity-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Payee</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                  <th>Status / Risk</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel" id="accessLogs">
+          <div class="panel-header">
+            <span>Recent Access Logs</span>
+            <span class="filter-chip">Live</span>
+          </div>
+          <div class="table-wrap">
+            <table class="activity-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                  <th>Details</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="activityTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="adminDetailDialog" class="admin-detail-dialog" aria-labelledby="adminDetailTitle">
+    <div class="admin-detail-content">
+      <div class="admin-detail-heading">
+        <h2 id="adminDetailTitle">Account details</h2>
+        <button id="closeAdminDetail" class="admin-detail-close" type="button" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="adminDetailBody"></div>
+    </div>
+  </dialog>
+
+  <div id="pinOverlay" class="pin-overlay">
+    <div class="pin-box">
+      <div class="pin-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h2>Admin Access</h2>
+      <p>Enter the secure admin PIN to unlock customer records, fraud status, and access logs.</p>
+      <form id="pinForm" class="pin-form">
+        <label for="adminPin">Admin PIN</label>
+        <input id="adminPin" type="password" maxlength="6" placeholder="Enter PIN" required />
+        <button type="submit">Unlock Admin Panel</button>
+      </form>
+      <div id="pinError" class="pin-error"></div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
+

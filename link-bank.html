@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Link Your Bank</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/bank.css">
+    <link rel="stylesheet" href="css/desktop-experience.css">
+
+</head>
+
+<body>
+
+<div class="mobile-screen">
+
+    <!-- Background Glow -->
+
+    <div class="bg-glow bg1"></div>
+    <div class="bg-glow bg2"></div>
+
+    <!-- Back Button -->
+
+    <div class="top-bar">
+        <button id="backBtn" type="button" aria-label="Back to dashboard">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+    </div>
+
+    <div class="circuit left"></div>
+    <div class="circuit right"></div>
+
+    <div class="hero-image">
+        <i class="fa-solid fa-building-columns" aria-label="Bank security"></i>
+    </div>
+
+    <div class="hero-text">
+        <h1>Link Your Bank Account</h1>
+        <p>Choose a bank in this sandbox preview. No real account will be connected.</p>
+    </div>
+
+    <div class="section-title">Choose Your Bank</div>
+
+    <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchBank" placeholder="Search your bank">
+    </div>
+
+    <div class="popular-title">Popular Banks</div>
+    <!-- Bank Grid -->
+
+    <div class="bank-grid">
+            <!-- SBI -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-sbi" aria-label="SBI bank icon">SBI</div>
+
+        <span>SBI</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- HDFC -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-hdfc" aria-label="HDFC Bank icon">HDFC</div>
+
+        <span>HDFC Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+    <!-- ICICI -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-icici" aria-label="ICICI Bank icon">ICICI</div>
+
+        <span>ICICI Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Axis -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-axis" aria-label="Axis Bank icon">AXIS</div>
+
+        <span>Axis Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+    <!-- Punjab National Bank -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-pnb" aria-label="Punjab National Bank icon">PNB</div>
+
+        <span>Punjab National Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Canara -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-canara" aria-label="Canara Bank icon">C</div>
+
+        <span>Canara Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Union -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-union" aria-label="Union Bank icon">UBI</div>
+
+        <span>Union Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Indian -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-indian" aria-label="Indian Bank icon">IB</div>
+
+        <span>Indian Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Bank of Baroda -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-bob" aria-label="Bank of Baroda icon">BOB</div>
+
+        <span>Bank of Baroda</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- Kotak -->
+
+    <div class="bank-card">
+
+        <div class="bank-icon bank-kotak" aria-label="Kotak Mahindra Bank icon">K</div>
+
+        <span>Kotak Mahindra Bank</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+    <!-- More Banks -->
+
+    <div class="more-bank-card">
+
+        <div class="more-bank-left">
+
+            <div class="more-icon">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <div>
+
+                <h3>More Banks</h3>
+
+                <p>View all supported banks</p>
+
+            </div>
+
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+    <!-- Security Card -->
+
+    <div class="security-card">
+
+        <div class="security-icon">
+
+            <i class="fa-solid fa-shield-halved" aria-label="Security"></i>
+
+        </div>
+
+        <div class="security-content">
+
+            <h2>Sandbox bank selection</h2>
+
+            <p>
+                Demo bank picker only. No bank credentials are collected and no account is connected.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Success Popup -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h2>Demo Bank Selected</h2>
+
+        <p>
+            No real account has been connected. Returning to your dashboard...
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/bank.js"></script>
+
+</body>
+
+</html>

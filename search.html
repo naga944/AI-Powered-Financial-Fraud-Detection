@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Search | AI SecurePay</title>
+
+<link rel="stylesheet"
+href="css/search.css">
+<link rel="stylesheet" href="css/desktop-experience.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================
+     HEADER
+========================== -->
+
+<header>
+
+<div class="top-bar">
+
+<a href="dashboard.html"
+
+class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<h1>
+
+Search
+
+</h1>
+
+</div>
+
+</header>
+
+<!-- ==========================
+     SEARCH BAR
+========================== -->
+
+<section class="search-section">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+
+type="text"
+
+id="searchInput"
+
+placeholder="Search people, banks, transactions...">
+
+<button id="clearSearch">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ==========================
+     RECENT SEARCHES
+========================== -->
+
+<section class="recent-searches">
+
+<div class="section-title">
+
+<h2>
+
+Recent Searches
+
+</h2>
+
+<button id="clearHistory">
+
+Clear
+
+</button>
+
+</div>
+
+<div id="recentSearchList">
+
+<!-- Recent searches will load here -->
+
+</div>
+
+</section>
+  <!-- ==========================================
+     PEOPLE
+========================================== -->
+
+<section class="people-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+People
+
+</h2>
+
+</div>
+
+<div id="peopleList">
+
+<div class="person-card">
+
+<div class="person-initial" aria-label="Rahul Kumar">RK</div>
+
+<div>
+
+<h3>Rahul Kumar</h3>
+
+<p>9876543210</p>
+
+</div>
+
+<button class="pay-btn">
+
+Pay
+
+</button>
+
+</div>
+
+<div class="person-card">
+
+<div class="person-initial" aria-label="Priya Sharma">PS</div>
+
+<div>
+
+<h3>Priya Sharma</h3>
+
+<p>8765432109</p>
+
+</div>
+
+<button class="pay-btn">
+
+Pay
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     LINKED BANKS
+========================================== -->
+
+<section class="bank-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-building-columns"></i>
+
+Linked Banks
+
+</h2>
+
+</div>
+
+<div id="bankList">
+
+<div class="bank-card">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<div>
+
+<h3>State Bank of India</h3>
+
+<p>XXXX XXXX 4321</p>
+
+</div>
+
+</div>
+
+<div class="bank-card">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<div>
+
+<h3>HDFC Bank</h3>
+
+<p>XXXX XXXX 6743</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     QUICK SERVICES
+========================================== -->
+
+<section class="services-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-bolt"></i>
+
+Quick Services
+
+</h2>
+
+</div>
+
+<div class="services-grid">
+
+<a href="pay-to-bank.html" class="service-card">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<span>
+
+Pay to Bank
+
+</span>
+
+</a>
+
+<a href="payment-options.html" class="service-card">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<span>
+
+Scan QR
+
+</span>
+
+</a>
+
+<a href="self-account.html" class="service-card">
+
+<i class="fa-solid fa-right-left"></i>
+
+<span>
+
+Self Transfer
+
+</span>
+
+</a>
+
+<a href="check-balance.html" class="service-card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<span>
+
+Check Balance
+
+</span>
+
+</a>
+
+<a href="transaction-history.html" class="service-card">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<span>
+
+Transactions
+
+</span>
+
+</a>
+
+<a href="profile.html" class="service-card">
+
+<i class="fa-solid fa-user"></i>
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     SEARCH RESULTS
+========================================== -->
+
+<section class="results-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search Results
+
+</h2>
+
+</div>
+
+<div id="searchResults">
+
+<!-- Results will appear here -->
+
+</div>
+
+</section>
+  <!-- ==========================================
+     RECENT TRANSACTIONS
+========================================== -->
+
+<section class="transactions-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Recent Transactions
+
+</h2>
+
+<a href="transaction-history.html">
+
+View All
+
+</a>
+
+</div>
+
+<div id="transactionList">
+
+<!-- Transactions loaded from JS -->
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     NOTIFICATIONS
+========================================== -->
+
+<section class="notifications-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-regular fa-bell"></i>
+
+Recent Notifications
+
+</h2>
+
+<a href="notification.html">
+
+View All
+
+</a>
+
+</div>
+
+<div id="notificationList">
+
+<!-- Notifications loaded from JS -->
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     FRAUD ALERTS
+========================================== -->
+
+<section class="fraud-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Fraud Alerts
+
+</h2>
+
+<a href="fraud-alerts.html">
+
+View All
+
+</a>
+
+</div>
+
+<div id="fraudList">
+
+<!-- Fraud alerts loaded from JS -->
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     AI SMART SUGGESTIONS
+========================================== -->
+
+<section class="ai-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-robot"></i>
+
+AI Smart Suggestions
+
+</h2>
+
+</div>
+
+<div class="ai-grid">
+
+<div class="ai-card">
+
+<i class="fa-solid fa-user-group"></i>
+
+<h3>
+
+Frequently Paid
+
+</h3>
+
+<p>
+
+Rahul Kumar
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>
+
+Check Balance
+
+</h3>
+
+<p>
+
+View latest account balance
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>
+
+Monthly Spending
+
+</h3>
+
+<p>
+
+View spending insights
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>
+
+Security Status
+
+</h3>
+
+<p>
+
+AI Protection Active
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+  <!-- ==========================================
+     FREQUENTLY USED
+========================================== -->
+
+<section class="quick-access">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-star"></i>
+
+Frequently Used
+
+</h2>
+
+</div>
+
+<div class="quick-grid">
+
+<a href="pay-to-bank.html" class="quick-card">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+<span>
+
+Pay
+
+</span>
+
+</a>
+
+<a href="payment-options.html" class="quick-card">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<span>
+
+Scan QR
+
+</span>
+
+</a>
+
+<a href="check-balance.html" class="quick-card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<span>
+
+Balance
+
+</span>
+
+</a>
+
+<a href="transaction-history.html" class="quick-card">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<span>
+
+History
+
+</span>
+
+</a>
+
+<a href="notification.html" class="quick-card">
+
+<i class="fa-regular fa-bell"></i>
+
+<span>
+
+Notifications
+
+</span>
+
+</a>
+
+<a href="profile.html" class="quick-card">
+
+<i class="fa-solid fa-user"></i>
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     SEARCH STATISTICS
+========================================== -->
+
+<section class="statistics-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-chart-simple"></i>
+
+Search Statistics
+
+</h2>
+
+</div>
+
+<div class="stats-grid">
+
+<div class="stats-card">
+
+<h3 id="searchCount">
+
+0
+
+</h3>
+
+<p>
+
+Total Searches
+
+</p>
+
+</div>
+
+<div class="stats-card">
+
+<h3 id="peopleCount">
+
+0
+
+</h3>
+
+<p>
+
+People Found
+
+</p>
+
+</div>
+
+<div class="stats-card">
+
+<h3 id="transactionCount">
+
+0
+
+</h3>
+
+<p>
+
+Transactions
+
+</p>
+
+</div>
+
+<div class="stats-card">
+
+<h3 id="bankCount">
+
+2
+
+</h3>
+
+<p>
+
+Linked Banks
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     HELP & SUPPORT
+========================================== -->
+
+<section class="support-section">
+
+<div class="section-title">
+
+<h2>
+
+<i class="fa-solid fa-headset"></i>
+
+Help & Support
+
+</h2>
+
+</div>
+
+<div class="support-buttons">
+
+<button id="contactSupport">
+
+<i class="fa-solid fa-phone"></i>
+
+Contact Support
+
+</button>
+
+<button id="reportIssue">
+
+<i class="fa-solid fa-bug"></i>
+
+Report an Issue
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+<div class="footer-content">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<p>
+
+AI SecurePay © 2026
+
+<br>
+
+Fast • Secure • Intelligent Payments
+
+</p>
+
+</div>
+
+</footer>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/search.js"></script>
+
+</body>
+
+</html>

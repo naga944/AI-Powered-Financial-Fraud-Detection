@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chat | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/chat.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+<div class="top-bar">
+
+    <!-- Back Button -->
+
+    <a href="user-transactions.html"
+       class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+    </a>
+
+    <!-- USER DETAILS -->
+
+    <div class="user-details">
+
+        <div class="profile-image">
+
+            <div class="avatar"
+                 id="userAvatar">
+
+                AS
+
+            </div>
+
+            <span class="verified-badge">
+
+                <i class="fa-solid fa-check"></i>
+
+            </span>
+
+        </div>
+
+        <div class="user-info">
+
+            <h2 id="userName">
+
+                Amit Sharma
+
+            </h2>
+
+            <p id="userPhone">
+
+                +91 98765 43210
+
+            </p>
+
+            <span class="verified">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                AI SecurePay Verified
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- HEADER BUTTONS -->
+
+    <div class="header-actions">
+
+        <!-- CALL -->
+
+        <button class="call-btn">
+
+            <i class="fa-solid fa-phone"></i>
+
+        </button>
+
+        <!-- MORE -->
+
+        <button class="menu-btn">
+
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+     CALL POPUP
+========================================== -->
+
+<div class="call-modal" id="callModal">
+
+    <div class="call-box">
+
+        <div class="call-avatar"
+             id="callAvatar">
+
+            AS
+
+        </div>
+
+        <h2 id="callName">
+
+            Amit Sharma
+
+        </h2>
+
+        <p id="callPhone">
+
+            +91 98765 43210
+
+        </p>
+
+        <h3>
+
+            Calling...
+
+        </h3>
+
+        <div class="call-buttons">
+
+            <button class="speaker-btn">
+
+                <i class="fa-solid fa-volume-high"></i>
+
+            </button>
+
+            <button class="mute-btn">
+
+                <i class="fa-solid fa-microphone-slash"></i>
+
+            </button>
+
+            <button class="end-call">
+
+                <i class="fa-solid fa-phone-slash"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     MORE MENU
+========================================== -->
+
+<div class="popup-menu"
+     id="popupMenu">
+
+    <button class="profile-option">
+
+        <i class="fa-solid fa-user"></i>
+
+        Profile
+
+    </button>
+
+    <button class="settings-option">
+
+        <i class="fa-solid fa-gear"></i>
+
+        Settings
+
+    </button>
+
+    <button class="block-option">
+
+        <i class="fa-solid fa-ban"></i>
+
+        Block Contact
+
+    </button>
+
+    <button class="export-option">
+
+        <i class="fa-solid fa-download"></i>
+
+        Export Chat
+
+    </button>
+
+    <button class="clear-option">
+
+        <i class="fa-solid fa-trash"></i>
+
+        Clear Chat
+
+    </button>
+
+</div>
+
+<!-- ==========================================
+     ENCRYPTION CARD
+========================================== -->
+
+<section class="security-card">
+
+    <div class="security-icon">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+    </div>
+
+    <div>
+
+        <h3>
+
+            Your chat is end-to-end encrypted
+
+        </h3>
+
+        <p>
+
+            AI SecurePay keeps your conversations
+            safe and private.
+
+        </p>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</section>
+
+<!-- ==========================================
+     CHAT AREA
+========================================== -->
+
+<section class="chat-section">
+
+<div class="date-divider">
+
+10 May 2025
+
+</div>
+  <!-- ==========================================
+     RECEIVED MESSAGE 1
+========================================== -->
+
+<div class="message-row received">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Hi <span id="chatUser">Deepika</span> 👋
+
+        </p>
+
+        <span class="time">
+
+            10:31 AM
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     SENT MESSAGE 1
+========================================== -->
+
+<div class="message-row sent">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Hi <span class="dynamicName">
+
+                Amit
+
+            </span>! 😊
+
+        </p>
+
+        <span class="time">
+
+            10:32 AM
+
+            <i class="fa-solid fa-check-double"></i>
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     RECEIVED MESSAGE 2
+========================================== -->
+
+<div class="message-row received">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Thanks for the payment.
+
+        </p>
+
+        <span class="time">
+
+            10:33 AM
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     SENT MESSAGE 2
+========================================== -->
+
+<div class="message-row sent">
+
+    <div class="message-bubble large">
+
+        <p>
+
+            You're welcome!
+
+            Let me know if you need
+
+            anything else.
+
+        </p>
+
+        <span class="time">
+
+            10:33 AM
+
+            <i class="fa-solid fa-check-double"></i>
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     RECEIVED MESSAGE 3
+========================================== -->
+
+<div class="message-row received">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Sure! I'll ping you.
+
+        </p>
+
+        <span class="time">
+
+            10:34 AM
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     DATE DIVIDER
+========================================== -->
+
+<div class="date-divider">
+
+11 May 2025
+
+</div>
+
+<!-- ==========================================
+     SENT MESSAGE 3
+========================================== -->
+
+<div class="message-row sent">
+
+    <div class="message-bubble large">
+
+        <p>
+
+            Hi
+
+            <span class="dynamicName">
+
+                Amit
+
+            </span>,
+
+            just checking if you
+
+            received the amount?
+
+        </p>
+
+        <span class="time">
+
+            09:15 AM
+
+            <i class="fa-solid fa-check-double"></i>
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     RECEIVED MESSAGE 4
+========================================== -->
+
+<div class="message-row received">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Yes, I received it.
+
+            Thanks! ✅
+
+        </p>
+
+        <span class="time">
+
+            09:16 AM
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     SENT MESSAGE 4
+========================================== -->
+
+<div class="message-row sent">
+
+    <div class="message-bubble">
+
+        <p>
+
+            Great!
+
+            Have a nice day 😊
+
+        </p>
+
+        <span class="time">
+
+            09:17 AM
+
+            <i class="fa-solid fa-check-double"></i>
+
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+  <!-- ==========================================
+     QUICK ACTIONS
+========================================== -->
+
+<section class="quick-actions">
+
+    <!-- Pay Again -->
+
+    <button id="payAgainBtn" class="action-btn">
+
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        <span>Pay Again</span>
+
+    </button>
+
+    <!-- View History -->
+
+    <button id="historyBtn" class="action-btn">
+
+        <i class="fa-solid fa-file-lines"></i>
+
+        <span>View History</span>
+
+    </button>
+
+    <!-- Security Tips -->
+
+    <button id="securityBtn" class="action-btn">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>Security Tips</span>
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     SECURITY TIPS MODAL
+========================================== -->
+
+<div class="security-modal" id="securityModal">
+
+    <div class="security-popup">
+
+        <div class="popup-header">
+
+            <h2>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                AI SecurePay Security Tips
+
+            </h2>
+
+            <button id="closeSecurity">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="popup-body">
+
+            <div class="tip">
+
+                ✅ Verify the receiver's name before paying.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Never share your UPI PIN or OTP.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Scan QR codes only from trusted merchants.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Double-check the payment amount.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Transactions above ₹5000 require additional verification.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ AI continuously monitors suspicious activities.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Report fraud immediately if you notice anything unusual.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Avoid sending money to unknown UPI IDs.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Enable biometric authentication for extra security.
+
+            </div>
+
+            <div class="tip">
+
+                ✅ Never click unknown payment links received through messages.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     MESSAGE INPUT
+========================================== -->
+
+<footer class="chat-footer">
+
+    <button class="emoji-btn">
+
+        <i class="fa-regular fa-face-smile"></i>
+
+    </button>
+
+    <input
+
+        type="text"
+
+        id="messageInput"
+
+        placeholder="Type a message...">
+
+    <button class="attach-btn">
+
+        <i class="fa-solid fa-paperclip"></i>
+
+    </button>
+
+    <button class="send-btn">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+    </button>
+
+</footer>
+  <!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="bottom-nav">
+
+    <!-- Home -->
+
+    <a href="dashboard.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+    <!-- Search -->
+
+    <a href="search.html">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <span>Search</span>
+
+    </a>
+
+    <!-- Scanner -->
+
+    <a href="payment-options.html">
+
+        <i class="fa-solid fa-qrcode"></i>
+
+        <span>Scanner</span>
+
+    </a>
+
+    <!-- Alerts -->
+
+    <a href="fraud-alerts.html">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>Alerts</span>
+
+    </a>
+
+    <!-- History -->
+
+    <a href="transaction-history.html" class="active">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        <span>History</span>
+
+    </a>
+
+</nav>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/chat.js"></script>
+
+</body>
+
+</html>

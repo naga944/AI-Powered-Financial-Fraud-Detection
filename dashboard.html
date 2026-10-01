@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI SecurePay Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="js/auth-client.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="top-bar">
+
+            <i class="fa-solid fa-bars menu"></i>
+
+            <div class="header-right">
+
+                <div class="account-summary">
+                    <strong id="headerUserName">SecurePay customer</strong>
+                    <span id="headerUserPhone">Account profile</span>
+                </div>
+
+                <a class="admin-top-link" href="admin.html" aria-label="Open Admin Console">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Admin</span>
+                </a>
+
+                <a href="notification.html">
+
+    <div class="notification">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span>2</span>
+
+    </div>
+
+</a>
+
+                <div class="profile">
+
+    <a href="profile.html">
+
+        <span id="headerUserInitial" aria-label="Customer profile">S</span>
+
+    </a>
+
+</div>
+
+            </div>
+
+        </div>
+
+            <nav class="quick-menu" id="quickMenu" hidden aria-label="Dashboard navigation">
+                <a href="payment-options.html"><i class="fa-solid fa-qrcode"></i> Scan & Pay</a>
+                <a href="pay-to-contact.html"><i class="fa-solid fa-address-book"></i> Pay to Contact</a>
+                <a href="pay-to-bank.html"><i class="fa-solid fa-building-columns"></i> Pay to Bank</a>
+                <a href="fraud-alerts.html"><i class="fa-solid fa-triangle-exclamation"></i> Fraud Alerts</a>
+                <a href="risk-analysis.html"><i class="fa-solid fa-chart-line"></i> Risk Analysis</a>
+                <a href="check-balance.html"><i class="fa-solid fa-wallet"></i> Check Balance</a>
+            </nav>
+
+    </header>
+
+    <!-- ================= WELCOME ================= -->
+
+    <section class="welcome-section">
+
+        <div class="welcome-text">
+
+            <h3>Welcome Back,</h3>
+
+            <h1>Deepika 👋</h1>
+
+            <p>Secure Every Transaction with AI</p>
+
+        </div>
+
+        <div class="shield">
+            <i class="fa-solid fa-shield-halved" aria-label="AI Security"></i>
+
+        </div>
+
+    </section>
+
+    <!-- ================= AI PROTECTION ================= -->
+
+    <section class="security-card">
+
+        <div class="security-left">
+
+            <div class="shield-circle">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>AI Protection Active</h3>
+
+                <p>Your account is protected by AI.</p>
+
+            </div>
+
+        </div>
+
+        <div class="security-right">
+
+            <span class="risk-badge">
+
+                Low Risk
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MONEY TRANSFERS ================= -->
+
+    <section class="money-transfer">
+
+        <div class="section-title">
+
+            <h2>Money Transfers</h2>
+
+        </div>
+
+        <div class="transfer-grid">
+                  <!-- Scan & Pay -->
+
+        <div class="transfer-card" id="scanQR">
+
+            <div class="transfer-icon blue">
+
+                <i class="fa-solid fa-qrcode"></i>
+
+            </div>
+
+            <h3>Scan & Pay</h3>
+
+            <p>Scan any QR code</p>
+
+        </div>
+
+        <!-- Pay to Contact -->
+
+        <div class="transfer-card" id="payContact">
+
+            <div class="transfer-icon purple">
+
+                <i class="fa-solid fa-address-book"></i>
+
+            </div>
+
+            <h3>Pay to Contact</h3>
+
+            <p>Send money instantly</p>
+
+        </div>
+
+        <!-- Pay to Bank -->
+
+        <div class="transfer-card" id="payBank">
+
+            <div class="transfer-icon green">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <h3>Pay to Bank</h3>
+
+            <p>Transfer to any bank</p>
+
+        </div>
+
+        <!-- Self Account -->
+
+        <div class="transfer-card" id="selfAccount">
+
+            <div class="transfer-icon orange">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <h3>Self Account</h3>
+
+            <p>Transfer to own account</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SECURITY SERVICES ================= -->
+
+<section class="security-services">
+
+    <div class="section-title">
+
+        <h2>Security Services</h2>
+
+    </div>
+
+    <div class="service-grid">
+              <!-- ================= FRAUD ALERTS ================= -->
+
+        <div class="service-card" id="fraudAlerts">
+
+            <div class="service-icon red">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <h3>Fraud Alerts</h3>
+
+            <p>View suspicious transactions</p>
+
+        </div>
+
+        <!-- ================= RISK ANALYSIS ================= -->
+
+        <div class="service-card" id="riskAnalysis">
+
+            <div class="service-icon cyan">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <h3>Risk Analysis</h3>
+
+            <p>Check AI risk score</p>
+
+        </div>
+
+        <!-- ================= CUSTOMER BEHAVIOUR ================= -->
+
+        <div class="service-card" id="customerBehaviour">
+
+            <div class="service-icon blue">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+            <h3>Behaviour</h3>
+
+            <p>Customer spending pattern</p>
+
+        </div>
+
+        <!-- ================= CHECK BALANCE ================= -->
+
+        <div class="service-card" id="checkBalance">
+
+            <div class="service-icon green">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <h3>Check Balance</h3>
+
+            <p>View linked bank balance</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= AI INSIGHT ================= -->
+
+<section class="ai-insight">
+
+    <div class="insight-card">
+
+        <div class="insight-icon">
+
+            <i class="fa-solid fa-robot"></i>
+
+        </div>
+
+        <div class="insight-content">
+
+            <h3>AI Insight</h3>
+
+            <p>
+
+                Your account is secure.
+
+                No suspicious transactions have been detected.
+
+            </p>
+
+        </div>
+
+        <button id="aiInsight">
+
+            View
+
+        </button>
+
+    </div>
+
+</section>
+      <!-- ================= BOTTOM NAVIGATION ================= -->
+
+    <nav class="bottom-nav">
+
+        <!-- Home -->
+
+        <a href="dashboard.html" class="active">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+        <!-- Search -->
+
+        <a href="search.html">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>Search</span>
+
+        </a>
+
+        <!-- Fraud Alerts -->
+
+        <a href="fraud-alerts.html">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <span>Alerts</span>
+
+        </a>
+<!-- Scanner -->
+
+        <a href="payment-options.html" class="scanner-btn">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            <span>Scanner</span>
+
+        </a>
+        <!-- History -->
+
+        <a href="transaction-history.html">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </a>
+
+        <!-- Risk Score -->
+
+        <a href="risk-analysis.html">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Risk</span>
+
+        </a>
+
+        <!-- Behaviour -->
+
+        <a href="customer-behaviour.html">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <span>Behaviour</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

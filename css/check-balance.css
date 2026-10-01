@@ -1,0 +1,1478 @@
+/* ==========================================
+   AI SecurePay - Check Balance
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.back-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.page-title{
+
+    flex:1;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.page-title p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    font-size:12px;
+
+    color:#3B82F6;
+
+}
+
+.logo i{
+
+    font-size:24px;
+
+    margin-bottom:4px;
+
+}
+
+/* ==========================================
+   BANK CARD
+========================================== */
+
+.bank-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.bank-card h2{
+
+    font-size:20px;
+
+    margin-bottom:18px;
+
+}
+
+.bank-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.bank-option{
+
+    display:block;
+
+    cursor:pointer;
+
+}
+
+.bank-option input{
+
+    display:none;
+
+}
+
+.bank-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.bank-option input:checked + .bank-info{
+
+    border-color:#2563EB;
+
+    background:#1E3A8A;
+
+}
+
+.bank-info .bank-mark{
+
+    width:48px;
+
+    height:48px;
+
+    flex:0 0 48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    color:#183749;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+.bank-mark.bank-sbi { color:#1688c8; border:3px solid #1688c8; border-radius:50%; }
+.bank-mark.bank-axis { color:#752b5d; }
+.bank-mark.bank-hdfc { color:#b51f2c; border:2px solid #b51f2c; }
+
+.bank-info h3{
+
+    font-size:16px;
+
+    margin-bottom:4px;
+
+}
+
+.bank-info p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+#verifyBtn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#verifyBtn:hover{
+
+    background:#1D4ED8;
+
+}
+/* ==========================================
+   POPUPS
+========================================== */
+
+.popup{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+
+}
+
+.popup.show{
+
+    display:flex;
+
+}
+
+.popup-box{
+
+    width:90%;
+
+    max-width:340px;
+
+    background:#1E293B;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    animation:popupShow .35s ease;
+
+}
+
+@keyframes popupShow{
+
+    from{
+
+        transform:scale(.85);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.popup-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:30px;
+
+}
+
+.popup-box h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.popup-box p{
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+
+}
+
+#upiPin{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#111827;
+
+    border:2px solid #334155;
+
+    border-radius:14px;
+
+    color:#FFFFFF;
+
+    text-align:center;
+
+    font-size:24px;
+
+    letter-spacing:8px;
+
+    outline:none;
+
+    margin-bottom:10px;
+
+}
+
+#upiPin:focus{
+
+    border-color:#2563EB;
+
+}
+
+#pinError{
+
+    display:none;
+
+    color:#EF4444;
+
+    font-size:13px;
+
+}
+
+.popup-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.popup-buttons button{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+#cancelPin{
+
+    background:#334155;
+
+    color:#FFFFFF;
+
+}
+
+#verifyPin{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   LOADER
+========================================== */
+
+.loading-box{
+
+    padding:40px 30px;
+
+}
+
+.loader{
+
+    width:60px;
+
+    height:60px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border:6px solid rgba(255,255,255,.2);
+
+    border-top:6px solid #2563EB;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================
+   BALANCE CARD
+========================================== */
+
+.balance-card{
+
+    display:none;
+
+    margin:20px;
+
+    padding:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    color:#FFFFFF;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+}
+
+.balance-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:25px;
+
+}
+
+.primary-tag{
+
+    background:rgba(255,255,255,.18);
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+}
+
+.balance-body p{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#DBEAFE;
+
+    margin-bottom:10px;
+
+}
+
+#toggleBalance{
+
+    border:none;
+
+    background:none;
+
+    color:#FFFFFF;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+#availableBalance{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+#lastUpdated{
+
+    color:#DBEAFE;
+
+    font-size:12px;
+
+}
+/* ==========================================
+   SECURITY CARD
+========================================== */
+
+.security-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    border:2px solid transparent;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.security-card:hover{
+
+    border-color:#2563EB;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.security-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:26px;
+
+    flex-shrink:0;
+
+}
+
+.security-content{
+
+    flex:1;
+
+}
+
+.security-content h3{
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+}
+
+.security-content p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+.security-card .fa-chevron-right{
+
+    color:#94A3B8;
+
+}
+
+/* ==========================================
+   ACCOUNT SECTION
+========================================== */
+
+.account-section{
+
+    margin:20px;
+
+}
+
+.account-section h2{
+
+    font-size:20px;
+
+    margin-bottom:16px;
+
+}
+
+.account-card{
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    padding:20px;
+
+}
+
+/* ==========================================
+   ACCOUNT DETAILS
+========================================== */
+
+.detail-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:16px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.detail-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.detail-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+}
+
+.detail-info{
+
+    flex:1;
+
+}
+
+.detail-info small{
+
+    display:block;
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+}
+
+.detail-info h3{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   COPY BUTTON
+========================================== */
+
+.copy-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.copy-btn:hover{
+
+    background:#2563EB;
+
+    transform:scale(1.05);
+
+}
+/* ==========================================
+   BALANCE ALERT CARD
+========================================== */
+
+.alert-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+}
+
+.alert-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex:1;
+
+}
+
+.alert-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:24px;
+
+    flex-shrink:0;
+
+}
+
+.alert-left h3{
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+}
+
+.alert-left p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+#enableAlertBtn{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    color:#2563EB;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#enableAlertBtn:hover{
+
+    background:#E0F2FE;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   REFRESH SECTION
+========================================== */
+
+.refresh-section{
+
+    margin:20px;
+
+}
+
+#refreshBtn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:.3s;
+
+}
+
+#refreshBtn:hover{
+
+    background:#16A34A;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(34,197,94,.30);
+
+}
+
+#refreshBtn i{
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+footer i{
+
+    color:#22C55E;
+
+    font-size:18px;
+
+}
+
+footer span{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.bank-card:hover,
+
+.account-card:hover,
+
+.security-card:hover{
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.bank-info:hover{
+
+    transform:translateX(4px);
+
+}
+
+.detail-row:hover{
+
+    background:rgba(37,99,235,.05);
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:pageLoad .5s ease;
+
+}
+
+@keyframes pageLoad{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   BALANCE GLOW ANIMATION
+========================================== */
+
+#availableBalance{
+
+    animation:balanceGlow 2s infinite alternate;
+
+}
+
+@keyframes balanceGlow{
+
+    from{
+
+        text-shadow:0 0 5px rgba(255,255,255,.2);
+
+    }
+
+    to{
+
+        text-shadow:
+
+        0 0 12px rgba(255,255,255,.6),
+
+        0 0 20px rgba(37,99,235,.5);
+
+    }
+
+}
+
+/* ==========================================
+   LOADER ANIMATION
+========================================== */
+
+.loader{
+
+    animation:
+
+    spin 1s linear infinite,
+
+    loaderGlow 2s ease infinite;
+
+}
+
+@keyframes loaderGlow{
+
+    0%{
+
+        box-shadow:0 0 5px rgba(37,99,235,.2);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 18px rgba(37,99,235,.6);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 5px rgba(37,99,235,.2);
+
+    }
+
+}
+
+/* ==========================================
+   BUTTON HOVER EFFECT
+========================================== */
+
+#verifyBtn:hover,
+
+#verifyPin:hover,
+
+#refreshBtn:hover,
+
+#enableAlertBtn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button{
+
+    transition:.3s ease;
+
+}
+
+/* ==========================================
+   POPUP ANIMATION
+========================================== */
+
+.popup.show .popup-box{
+
+    animation:popupZoom .35s ease;
+
+}
+
+@keyframes popupZoom{
+
+    0%{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    70%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================
+   ICON HOVER
+========================================== */
+
+.detail-icon,
+
+.security-icon,
+
+.alert-icon{
+
+    transition:.3s ease;
+
+}
+
+.detail-row:hover .detail-icon,
+
+.security-card:hover .security-icon,
+
+.alert-card:hover .alert-icon{
+
+    transform:rotate(8deg) scale(1.08);
+
+}
+
+/* ==========================================
+   COPY BUTTON EFFECT
+========================================== */
+
+.copy-btn:active{
+
+    transform:scale(.92);
+
+}
+
+.copy-btn:hover{
+
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.top-bar{
+
+    gap:10px;
+
+}
+
+.page-title h1{
+
+    font-size:20px;
+
+}
+
+.page-title p{
+
+    font-size:12px;
+
+}
+
+.logo{
+
+    display:none;
+
+}
+
+.protection-card,
+
+.alert-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.bank-info{
+
+    padding:14px;
+
+}
+
+.balance-header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.detail-row{
+
+    flex-wrap:wrap;
+
+}
+
+.copy-btn{
+
+    margin-left:auto;
+
+}
+
+.popup-box{
+
+    width:92%;
+
+}
+
+.popup-buttons{
+
+    flex-direction:column;
+
+}
+
+#verifyBtn,
+
+#refreshBtn,
+
+#enableAlertBtn{
+
+    width:100%;
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0F172A;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL TRANSITIONS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/* ==========================================
+   ACTIVE EFFECTS
+========================================== */
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+.bank-card:active,
+
+.account-card:active,
+
+.security-card:active,
+
+.alert-card:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   INPUT PLACEHOLDER
+========================================== */
+
+input::placeholder{
+
+    color:#94A3B8;
+
+}
+
+/* ==========================================
+   SELECTION COLOR
+========================================== */
+
+::selection{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

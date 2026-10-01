@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Enter Amount | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/enter-amount.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="header">
+
+        <a href="javascript:history.back()" class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <h1>
+
+            Enter Amount
+
+        </h1>
+
+        <div class="secure">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>Secure Payment</span>
+
+        </div>
+
+    </div>
+
+    <p class="subtitle">
+
+        Enter the amount you want to pay
+
+    </p>
+
+</header>
+
+<!-- ================= RECEIVER CARD ================= -->
+
+<section class="receiver-card">
+
+    <div class="receiver-left">
+
+        <div class="avatar"
+             id="receiverAvatar">
+
+            AS
+
+        </div>
+
+        <div class="receiver-details">
+
+            <h2 id="receiverName">
+
+                Amit Sharma
+
+            </h2>
+
+            <p id="receiverNumber">
+
+                +91 98765 43210
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button class="change-btn"
+            id="changeReceiver">
+
+        Change
+
+    </button>
+
+</section>
+
+<!-- ================= AMOUNT ================= -->
+
+<section class="amount-card">
+
+    <h3>
+
+        Enter Amount
+
+    </h3>
+
+    <div class="amount-box">
+
+        <span class="rupee">
+
+            ₹
+
+        </span>
+
+        <input
+
+            type="text"
+
+            id="amount"
+
+            value="0.00"
+
+            readonly
+
+        >
+
+    </div>
+
+    <div class="amount-line"></div>
+
+    <button class="note-btn">
+
+        <i class="fa-regular fa-note-sticky"></i>
+
+        Add a note (optional)
+
+    </button>
+
+</section>
+  <!-- ==========================================
+     QUICK AMOUNTS
+========================================== -->
+
+<section class="quick-amount">
+
+    <h3>
+
+        Quick Amounts
+
+    </h3>
+
+    <div class="quick-grid">
+
+        <button class="quick-btn" data-amount="100">
+
+            ₹100
+
+        </button>
+
+        <button class="quick-btn" data-amount="200">
+
+            ₹200
+
+        </button>
+
+        <button class="quick-btn" data-amount="500">
+
+            ₹500
+
+        </button>
+
+        <button class="quick-btn" data-amount="1000">
+
+            ₹1,000
+
+        </button>
+
+        <button class="quick-btn" data-amount="2000">
+
+            ₹2,000
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     NUMERIC KEYPAD
+========================================== -->
+
+<section class="keypad-card">
+
+    <div class="keypad">
+
+        <!-- Row 1 -->
+
+        <button class="key" data-key="1">
+
+            <span class="number">1</span>
+
+        </button>
+
+        <button class="key" data-key="2">
+
+            <span class="number">2</span>
+
+            <span class="letters">ABC</span>
+
+        </button>
+
+        <button class="key" data-key="3">
+
+            <span class="number">3</span>
+
+            <span class="letters">DEF</span>
+
+        </button>
+
+        <!-- Row 2 -->
+
+        <button class="key" data-key="4">
+
+            <span class="number">4</span>
+
+            <span class="letters">GHI</span>
+
+        </button>
+
+        <button class="key" data-key="5">
+
+            <span class="number">5</span>
+
+            <span class="letters">JKL</span>
+
+        </button>
+
+        <button class="key" data-key="6">
+
+            <span class="number">6</span>
+
+            <span class="letters">MNO</span>
+
+        </button>
+
+        <!-- Row 3 -->
+
+        <button class="key" data-key="7">
+
+            <span class="number">7</span>
+
+            <span class="letters">PQRS</span>
+
+        </button>
+
+        <button class="key" data-key="8">
+
+            <span class="number">8</span>
+
+            <span class="letters">TUV</span>
+
+        </button>
+
+        <button class="key" data-key="9">
+
+            <span class="number">9</span>
+
+            <span class="letters">WXYZ</span>
+
+        </button>
+
+        <!-- Row 4 -->
+
+        <button class="key" data-key=".">
+
+            <span class="number">.</span>
+
+        </button>
+
+        <button class="key" data-key="0">
+
+            <span class="number">0</span>
+
+        </button>
+
+        <button
+            class="key delete-key"
+            id="deleteKey">
+
+            <i class="fa-solid fa-delete-left"></i>
+
+        </button>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     CONTINUE BUTTON
+========================================== -->
+
+<section class="continue-section">
+
+    <button id="continueBtn" class="continue-btn">
+
+        <span>Review Demo Transfer</span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     AI VERIFICATION POPUP
+========================================== -->
+
+<div class="popup-overlay" id="verifyPopup">
+
+    <div class="popup">
+
+        <div class="popup-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <h2>
+
+            AI Transaction Verification
+
+        </h2>
+
+        <p>
+
+            Receiver :
+            <strong id="popupReceiver">
+
+                Amit Sharma
+
+            </strong>
+
+        </p>
+
+        <p>
+
+            Amount :
+            <strong id="popupAmount">
+
+                ₹0.00
+
+            </strong>
+
+        </p>
+
+        <p class="verify-msg">
+
+            This transfer is above ₹5,000 and requires account re-verification.
+
+            <br><br>
+
+            Confirm the recipient, amount, device, and local time before authorizing.
+
+        </p>
+
+        <div class="step-up-box">
+            <p id="stepUpContext">Device and local-time checks will be shown here.</p>
+            <label for="stepUpPassword">Re-enter account password</label>
+            <input id="stepUpPassword" type="password" autocomplete="current-password" placeholder="Account password">
+            <button id="verifyStepUpButton" type="button">Verify account</button>
+            <p id="stepUpStatus" role="status" aria-live="polite">Password is not stored. SMS OTP and biometric providers are not configured in this demo.</p>
+        </div>
+
+        <div class="popup-buttons">
+
+            <button
+                id="yesBtn"
+                class="yes-btn"
+                disabled>
+
+                Confirm transfer
+
+            </button>
+
+            <button
+                id="noBtn"
+                class="no-btn">
+
+                No
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     PAYMENT SUCCESS POPUP
+========================================== -->
+
+<div class="popup-overlay"
+     id="successPopup">
+
+    <div class="popup success-popup">
+
+        <div class="popup-icon success-icon">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <h2>
+
+            Ready to Record
+
+        </h2>
+
+        <p>
+
+            This demo records the transfer for risk review only. No money will move.
+
+        </p>
+
+        <div class="success-info">
+
+            <p>
+
+                Receiver
+
+                <span id="successReceiver">
+
+                    Amit Sharma
+
+                </span>
+
+            </p>
+
+            <p>
+
+                Amount
+
+                <span id="successAmount">
+
+                    ₹0.00
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <button
+            id="successBtn"
+            class="success-btn">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+  <!-- ==========================================
+     FRAUD DETECTED POPUP
+========================================== -->
+
+<div class="popup-overlay" id="fraudPopup">
+
+    <div class="popup fraud-popup">
+
+        <div class="popup-icon fraud-icon">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <h2>
+
+            AI Detected Suspicious Transaction
+
+        </h2>
+
+        <p>
+
+            Our AI engine detected unusual payment behaviour.
+
+        </p>
+
+        <div class="fraud-box">
+
+            <p>
+
+                <strong>Risk Score :</strong>
+
+                97%
+
+            </p>
+
+            <p>
+
+                <strong>Status :</strong>
+
+                High Risk
+
+            </p>
+
+            <p>
+
+                <strong>Recommendation :</strong>
+
+                Freeze Transaction
+
+            </p>
+
+        </div>
+
+        <div class="popup-buttons">
+
+            <button id="reportBtn"
+                    class="report-btn">
+
+                Report Fraud
+
+            </button>
+
+            <button id="cancelBtn"
+                    class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION FROZEN POPUP
+========================================== -->
+
+<div class="popup-overlay" id="freezePopup">
+
+    <div class="popup freeze-popup">
+
+        <div class="popup-icon freeze-icon">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </div>
+
+        <h2>
+
+            Transaction Frozen
+
+        </h2>
+
+        <p>
+
+            Your payment has been stopped successfully.
+
+        </p>
+
+        <p>
+
+            AI has protected your money from a possible fraud attempt.
+
+        </p>
+
+        <div class="freeze-info">
+
+            <p>
+
+                ✔ Transaction Blocked
+
+            </p>
+
+            <p>
+
+                ✔ Bank Notified
+
+            </p>
+
+            <p>
+
+                ✔ Fraud Report Generated
+
+            </p>
+
+            <p>
+
+                ✔ Your Money is Safe
+
+            </p>
+
+        </div>
+
+        <button id="freezeDoneBtn"
+                class="success-btn">
+
+            Back to Dashboard
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+<!-- ==========================================
+     AI VERIFICATION POPUP
+========================================== -->
+
+<div id="verifyModal" class="verify-modal">
+
+    <div class="verify-box">
+
+        <div class="verify-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <h2>
+
+            AI Security Verification
+
+        </h2>
+
+        <p>
+
+            This transaction is above ₹5000.
+
+            Did you initiate this payment?
+
+        </p>
+
+        <div class="verify-buttons">
+
+            <button id="legacySecurityYesBtn">
+
+                YES
+
+            </button>
+
+            <button id="legacySecurityNoBtn">
+
+                NO
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/auth-client.js"></script>
+<script src="js/enter-amount.js"></script>
+
+</body>
+
+</html>

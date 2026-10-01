@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Risk Analysis | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/risk-analysis.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <!-- Back Button -->
+
+        <a href="dashboard.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <!-- Title -->
+
+        <div class="page-title">
+
+            <h1>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Risk Analysis
+
+            </h1>
+
+            <p>
+
+                Risk review from saved demo transfers and account activity
+
+            </p>
+
+        </div>
+
+        <!-- Info Button -->
+
+        <button id="infoBtn"
+                class="info-btn">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     OVERALL RISK SCORE
+========================================== -->
+
+<section class="risk-card">
+
+    <div class="risk-left">
+
+        <h2>
+
+            Overall Risk Score
+
+        </h2>
+
+        <div class="score">
+
+            <span id="riskScore">
+
+                18
+
+            </span>
+
+            <small>/100</small>
+
+        </div>
+
+        <div id="riskBadge"
+             class="badge low">
+
+            Low Risk
+
+        </div>
+
+        <p id="riskMessage">
+
+            Your account is secure.
+            No immediate action required.
+
+        </p>
+
+    </div>
+
+    <div class="risk-right">
+
+        <div class="meter">
+
+            <div id="needle"
+                 class="needle"></div>
+
+            <div class="shield">
+
+                <i class="fa-solid fa-shield-check"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     RISK FACTORS
+========================================== -->
+
+<section class="section-title">
+
+    <h2>
+
+        Risk Factors
+
+    </h2>
+
+    <a href="#" id="riskSummaryButton">
+
+        View Details
+
+    </a>
+
+</section>
+<!-- ==========================================
+     ACCOUNT SECURITY
+========================================== -->
+
+<div class="factor-card">
+
+    <div class="factor-left">
+
+        <div class="factor-icon green">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div class="factor-info">
+
+            <h3>
+
+                Account Security
+
+            </h3>
+
+            <p>
+
+                Password sign-in enabled; separate MFA is not configured
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="factor-right">
+
+        <span id="securityRisk"
+              class="status low">
+
+            Low Risk
+
+        </span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     DEVICE & LOCATION
+========================================== -->
+
+<div class="factor-card">
+
+    <div class="factor-left">
+
+        <div class="factor-icon blue">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+        </div>
+
+        <div class="factor-info">
+
+            <h3>
+
+                Device & Location
+
+            </h3>
+
+            <p id="deviceStatus">
+
+                Current browser is recorded; location is not shared
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="factor-right">
+
+        <span id="deviceRisk"
+              class="status low">
+
+            Low Risk
+
+        </span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     TRANSACTION BEHAVIOUR
+========================================== -->
+
+<div class="factor-card">
+
+    <div class="factor-left">
+
+        <div class="factor-icon orange">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <div class="factor-info">
+
+            <h3>
+
+                Transaction Behaviour
+
+            </h3>
+
+            <p id="transactionStatus">
+
+                AI analysing transaction history...
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="factor-right">
+
+        <span id="transactionRisk"
+              class="status medium">
+
+            Medium Risk
+
+        </span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     PAYEE PROFILE
+========================================== -->
+
+<div class="factor-card">
+
+    <div class="factor-left">
+
+        <div class="factor-icon purple">
+
+            <i class="fa-solid fa-users"></i>
+
+        </div>
+
+        <div class="factor-info">
+
+            <h3>
+
+                Payee Profile
+
+            </h3>
+
+            <p id="payeeStatus">
+
+                Verified payees detected
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="factor-right">
+
+        <span id="payeeRisk"
+              class="status low">
+
+            Low Risk
+
+        </span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     FRAUD ALERTS
+========================================== -->
+
+<div class="factor-card">
+
+    <div class="factor-left">
+
+        <div class="factor-icon red">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <div class="factor-info">
+
+            <h3>
+
+                Fraud & Alerts
+
+            </h3>
+
+            <p id="fraudStatus">
+
+                AI checking fraud alerts...
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="factor-right">
+
+        <span id="fraudRisk"
+              class="status medium">
+
+            Medium Risk
+
+        </span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+</div>
+<dialog id="riskFactorDialog" class="risk-detail-dialog" aria-labelledby="riskDetailTitle">
+    <div class="risk-detail-content">
+        <div class="risk-detail-header">
+            <div>
+                <span class="risk-detail-kicker">ACCOUNT RISK REVIEW</span>
+                <h2 id="riskDetailTitle">Risk factor</h2>
+            </div>
+            <button id="closeRiskDetails" class="risk-detail-close" type="button" aria-label="Close risk details"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p id="riskDetailSummary" class="risk-detail-summary"></p>
+        <dl class="risk-detail-grid">
+            <div><dt>Current result</dt><dd id="riskDetailAssessment">—</dd></div>
+            <div><dt>Account evidence</dt><dd id="riskDetailEvidence">—</dd></div>
+            <div><dt>Recent activity</dt><dd id="riskDetailActivity">—</dd></div>
+            <div><dt>Recommended action</dt><dd id="riskDetailAction">—</dd></div>
+        </dl>
+        <div id="locationControls" class="location-controls" hidden>
+            <button id="requestRiskLocation" type="button"><i class="fa-solid fa-location-crosshairs"></i> Share current location for this check</button>
+            <p id="riskLocationStatus" role="status">Location is not shared. Your browser will ask permission first.</p>
+            <a id="riskLocationMap" target="_blank" rel="noreferrer" hidden>Open permitted coordinates in map</a>
+        </div>
+    </div>
+</dialog>
+<!-- ==========================================
+     RECENT ACTIVITY IMPACT
+========================================== -->
+
+<section class="activity-card">
+
+    <div class="activity-header">
+
+        <div>
+
+            <h2>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Recent Activity Impact
+
+            </h2>
+
+            <p>High-risk transfers in account history: <span id="riskPercent">0</span>. No population comparison is available.</p>
+
+        </div>
+
+        <div class="trend-box">
+
+            <small>
+
+                Saved history
+
+            </small>
+
+            <h3 id="trendValue">
+
+                No history
+
+            </h3>
+
+            <span>
+
+                Current account
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Trend Graph -->
+
+    <div class="graph">
+
+        <div id="riskHistoryChart" class="graph-line" role="img" aria-label="Recorded risk score history"></div>
+
+    </div>
+
+    <div id="riskHistoryLabels" class="graph-labels"></div>
+
+</section>
+
+<!-- ==========================================
+     RECOMMENDATIONS
+========================================== -->
+
+<section class="section-title">
+
+    <h2>
+
+        Recommendations
+
+    </h2>
+
+    <a href="#">
+
+        View All
+
+    </a>
+
+</section>
+
+<!-- ==========================================
+     RECOMMENDATION 1
+========================================== -->
+
+<div class="recommend-card">
+
+    <div class="recommend-left">
+
+        <div class="recommend-icon green">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Keep your app updated
+
+            </h3>
+
+            <p>
+
+                Using the latest version ensures better security.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<!-- ==========================================
+     RECOMMENDATION 2
+========================================== -->
+
+<div class="recommend-card">
+
+    <div class="recommend-left">
+
+        <div class="recommend-icon blue">
+
+            <i class="fa-solid fa-bell"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Enable transaction notifications
+
+            </h3>
+
+            <p>
+
+                Get real-time alerts for every transaction.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+<!-- ==========================================
+     RECOMMENDATION 3
+========================================== -->
+
+<div class="recommend-card">
+
+    <div class="recommend-left">
+
+        <div class="recommend-icon purple">
+
+            <i class="fa-solid fa-user-check"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Verify unknown payees
+
+            </h3>
+
+            <p>
+
+                Always verify before sending money to new contacts.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</div>
+<!-- ==========================================
+     AI SECUREPAY PROTECTION
+========================================== -->
+
+<section class="protection-card">
+
+    <div class="protection-left">
+
+        <div class="protection-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                AI SecurePay Protection
+
+            </h2>
+
+            <p>
+
+                Risk checks run when a demo transfer is recorded. New-device, repeat-payee, late-hour, and high-value indicators are shown with that transfer.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="learnMoreBtn" class="learn-btn">
+
+        Learn More
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     SECURITY SUMMARY
+========================================== -->
+
+<section class="summary-card">
+
+    <div class="summary-item">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <div>
+
+            <h3>
+
+                Secure Account
+
+            </h3>
+
+            <p>
+
+                Password sign-in; MFA provider not configured
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-item">
+
+        <i class="fa-solid fa-mobile-screen"></i>
+
+        <div>
+
+            <h3>
+
+                Trusted Device
+
+            </h3>
+
+            <p>
+
+                Device checks run when a transfer is recorded
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-item">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <div>
+
+            <h3>
+
+                Trusted Location
+
+            </h3>
+
+            <p>
+
+                Location remains private unless you choose to share it
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-item">
+
+        <i class="fa-solid fa-credit-card"></i>
+
+        <div>
+
+            <h3>
+
+                Safe Transactions
+
+            </h3>
+
+            <p>
+
+                Risk reason and score are saved with each demo transfer
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <p>
+
+        <i class="fa-solid fa-lock"></i>
+
+        AI SecurePay • Real-Time Fraud Detection &
+        Risk Monitoring
+
+    </p>
+
+</footer>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/risk-analysis.js"></script>
+
+</div>
+
+</body>
+
+</html>

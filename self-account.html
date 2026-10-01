@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Transfer to Self | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/self-account.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <!-- Back -->
+
+        <a href="dashboard.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <!-- Title -->
+
+        <div class="page-title">
+
+            <h1>
+
+                Transfer to Self
+
+            </h1>
+
+            <p>
+
+                Transfer money to your own account
+
+            </p>
+
+        </div>
+
+        <!-- AI SecurePay -->
+
+        <div class="securepay">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>AI SecurePay</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     LINKED MOBILE NUMBER
+========================================== -->
+
+<section class="mobile-card">
+
+    <div class="mobile-left">
+
+        <div class="mobile-icon">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Your Linked Mobile Number
+
+            </h3>
+
+            <h2 id="mobileNumber">
+
+                +91 98765 43210
+
+            </h2>
+
+            <span class="verified">
+
+                <i class="fa-solid fa-shield-check"></i>
+
+                Verified & Secure
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <button class="change-btn">
+
+        Change
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     SELECT ACCOUNT
+========================================== -->
+
+<section class="section-title">
+
+    <h2>
+
+        Select Your Account
+
+    </h2>
+
+</section>
+
+<!-- ==========================================
+     ACCOUNT 1
+========================================== -->
+
+<div class="account-card active">
+
+    <div class="radio selected">
+
+        <i class="fa-solid fa-circle-dot"></i>
+
+    </div>
+
+    <div class="bank-logo sbi">
+
+        SBI
+
+    </div>
+
+    <div class="account-info">
+
+        <h3>
+
+            State Bank of India
+
+        </h3>
+
+        <p>
+
+            Savings Account
+
+        </p>
+
+        <span>
+
+            XXXX XXXX 4321
+
+        </span>
+
+    </div>
+
+    <div class="account-right">
+
+        <span class="primary">
+
+            Primary
+
+        </span>
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     ACCOUNT 2
+========================================== -->
+
+<div class="account-card">
+
+    <div class="radio">
+
+        <i class="fa-regular fa-circle"></i>
+
+    </div>
+
+    <div class="bank-logo axis">
+
+        AX
+
+    </div>
+
+    <div class="account-info">
+
+        <h3>
+
+            Axis Bank
+
+        </h3>
+
+        <p>
+
+            Savings Account
+
+        </p>
+
+        <span>
+
+            XXXX XXXX 5678
+
+        </span>
+
+    </div>
+
+    <div class="account-right">
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+</div>
+  <!-- ==========================================
+     ENTER AMOUNT
+========================================== -->
+
+<section class="amount-section">
+
+    <h2>
+
+        Enter Amount
+
+    </h2>
+
+    <div class="amount-box">
+
+        <div class="rupee-icon">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <input
+
+            type="number"
+
+            id="amount"
+
+            placeholder="0.00"
+
+            autocomplete="off">
+
+    </div>
+
+    <p class="amount-words" id="amountWords">
+
+        Rupees Zero Only
+
+    </p>
+
+</section>
+
+<!-- ==========================================
+     ADD NOTE
+========================================== -->
+
+<section class="note-section">
+
+    <h2>
+
+        Add a Note (Optional)
+
+    </h2>
+
+    <div class="note-box">
+
+        <i class="fa-regular fa-note-sticky"></i>
+
+        <input
+
+            type="text"
+
+            id="note"
+
+            maxlength="40"
+
+            placeholder="Enter a note">
+
+        <span id="noteCount">
+
+            0/40
+
+        </span>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     QUICK AMOUNTS
+========================================== -->
+
+<section class="quick-section">
+
+    <h2>
+
+        Quick Amounts
+
+    </h2>
+
+    <div class="quick-grid">
+
+        <button class="quick-btn">
+
+            ₹100
+
+        </button>
+
+        <button class="quick-btn">
+
+            ₹200
+
+        </button>
+
+        <button class="quick-btn">
+
+            ₹500
+
+        </button>
+
+        <button class="quick-btn">
+
+            ₹1,000
+
+        </button>
+
+        <button class="quick-btn">
+
+            ₹2,000
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     SECURITY CARD
+========================================== -->
+
+<section class="security-card">
+
+    <div class="security-icon">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+    </div>
+
+    <div class="security-content">
+
+        <h3>
+
+            Self Transfer Protection
+
+        </h3>
+
+        <p>
+
+            This is a transfer to your own account.
+
+            AI SecurePay verifies every transaction using
+            fraud detection, device verification and
+            behaviour analysis.
+
+        </p>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     CONTINUE BUTTON
+========================================== -->
+
+<section class="continue-section">
+
+    <button id="continueBtn" class="continue-btn">
+
+        <span>
+
+            Continue to Transfer
+
+        </span>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     AI SECUREPAY FOOTER
+========================================== -->
+
+<section class="footer-security">
+
+    <i class="fa-solid fa-lock"></i>
+
+    <span>
+
+        Secured by AI SecurePay • Bank-level Security
+
+    </span>
+
+</section>
+
+<!-- ==========================================
+     TRANSFER SUCCESS POPUP
+========================================== -->
+
+<div class="success-modal" id="successModal">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <h2>
+
+            Review sandbox transfer
+
+        </h2>
+
+        <p>
+
+            No funds move in this demo. Confirm to record this transfer for risk review.
+
+        </p>
+
+        <div class="success-details">
+
+            <div class="detail-row">
+
+                <span>
+
+                    Bank
+
+                </span>
+
+                <strong id="successBank">
+
+                    State Bank of India
+
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+
+                    Amount
+
+                </span>
+
+                <strong id="successAmount">
+
+                    ₹0.00
+
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+
+                    Status
+
+                </span>
+
+                <strong class="success-status">
+
+                    Success
+
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+
+                    Transaction ID
+
+                </span>
+
+                <strong id="txnId">
+
+                    TXN00000001
+
+                </strong>
+
+            </div>
+
+        </div>
+
+        <button id="doneBtn" class="done-btn">
+
+            Go to Transaction History
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="bottom-nav">
+
+    <a href="dashboard.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+    <a href="search.html">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <span>Search</span>
+
+    </a>
+
+    <a href="payment-options.html">
+
+        <i class="fa-solid fa-qrcode"></i>
+
+        <span>Scanner</span>
+
+    </a>
+
+    <a href="fraud-alerts.html">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>Alerts</span>
+
+    </a>
+
+    <a href="transaction-history.html" class="active">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        <span>History</span>
+
+    </a>
+
+</nav>
+  <!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/auth-client.js"></script>
+<script src="js/self-account.js"></script>
+
+</div>
+
+</body>
+
+</html>

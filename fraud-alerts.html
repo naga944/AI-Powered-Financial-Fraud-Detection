@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fraud Alerts | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/fraud-alerts.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+<div class="top-bar">
+
+<a href="dashboard.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div class="page-title">
+
+<h1>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Fraud Alerts
+
+</h1>
+
+<p>
+
+AI-powered protection for your transactions
+
+</p>
+
+</div>
+
+<button id="notificationBtn" class="notification-btn">
+
+<i class="fa-regular fa-bell"></i>
+
+<span id="alertCount">0</span>
+
+</button>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+     AI PROTECTION CARD
+========================================== -->
+
+<section class="protection-card">
+
+<div class="shield-image">
+
+<i class="fa-solid fa-shield-check"></i>
+
+</div>
+
+<div class="protection-content">
+
+<div class="protected-tag">
+
+<i class="fa-solid fa-circle-check"></i>
+
+You're Protected
+
+</div>
+
+<h2>
+
+AI SecurePay Protection
+
+</h2>
+
+<p>
+
+AI SecurePay continuously monitors your account 24/7 to detect suspicious activities, unusual transactions and fraud attempts.
+
+</p>
+
+<div class="monitor-grid">
+
+<div>
+
+<i class="fa-solid fa-shield"></i>
+
+<small>Monitoring</small>
+
+<span>Active</span>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-microchip"></i>
+
+<small>AI Engine</small>
+
+<span>Running</span>
+
+</div>
+
+<div>
+
+<i class="fa-regular fa-clock"></i>
+
+<small>Last Scan</small>
+
+<span id="lastScan">
+
+Just Now
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     ALERT SUMMARY
+========================================== -->
+
+<section class="summary-grid">
+
+<div class="summary-card high">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+<h2 id="highAlerts">
+
+0
+
+</h2>
+
+<p>
+
+High Risk Alerts
+
+</p>
+
+</div>
+
+<div class="summary-card medium">
+
+<i class="fa-solid fa-circle-exclamation"></i>
+
+<h2 id="mediumAlerts">
+
+0
+
+</h2>
+
+<p>
+
+Medium Risk Alerts
+
+</p>
+
+</div>
+
+<div class="summary-card low">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<h2 id="lowAlerts">
+
+0
+
+</h2>
+
+<p>
+
+Low Risk Alerts
+
+</p>
+
+</div>
+
+<div class="summary-card total">
+
+<i class="fa-solid fa-bell"></i>
+
+<h2 id="totalAlerts">
+
+0
+
+</h2>
+
+<p>
+
+Total Alerts
+
+</p>
+
+</div>
+
+</section>
+  <!-- ==========================================
+     SEARCH & FILTER
+========================================== -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="searchAlert"
+            placeholder="Search alerts...">
+
+    </div>
+
+    <div class="filter-row">
+
+        <button class="filter-btn active"
+                data-filter="all">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            Last 30 Days
+
+        </button>
+
+        <button class="filter-btn"
+                data-filter="high">
+
+            High
+
+        </button>
+
+        <button class="filter-btn"
+                data-filter="medium">
+
+            Medium
+
+        </button>
+
+        <button class="filter-btn"
+                data-filter="low">
+
+            Low
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     RECENT ALERTS
+========================================== -->
+
+<section class="alerts-section">
+
+    <div class="section-header">
+
+        <h2>
+
+            Recent Alerts
+
+        </h2>
+
+        <button id="viewAllBtn">
+
+            View All
+
+        </button>
+
+    </div>
+
+    <!-- Alerts will be loaded here -->
+
+    <div id="alertContainer">
+
+    </div>
+
+    <!-- Empty State -->
+
+    <div id="emptyAlert"
+         class="empty-alert">
+
+        <i class="fa-solid fa-shield-check"></i>
+
+        <h3>
+
+            No Fraud Alerts
+
+        </h3>
+
+        <p>
+
+            Your account is secure.
+
+            AI SecurePay has not detected any suspicious activity.
+
+        </p>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     STAY SAFE WITH AI SECUREPAY
+========================================== -->
+
+<section class="safety-card">
+
+    <div class="safety-header">
+
+        <div class="safety-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                Stay Safe with AI SecurePay
+
+            </h2>
+
+            <p>
+
+                Follow these security tips to protect your account from fraud and unauthorized transactions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="tips-grid">
+
+        <div class="tip-item">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h4>
+
+                Never Share PIN
+
+            </h4>
+
+            <p>
+
+                Never share your UPI PIN, OTP or password with anyone.
+
+            </p>
+
+        </div>
+
+        <div class="tip-item">
+
+            <i class="fa-solid fa-user-check"></i>
+
+            <h4>
+
+                Verify Payee
+
+            </h4>
+
+            <p>
+
+                Always verify the receiver before sending money.
+
+            </p>
+
+        </div>
+
+        <div class="tip-item">
+
+            <i class="fa-solid fa-wifi"></i>
+
+            <h4>
+
+                Avoid Public Wi-Fi
+
+            </h4>
+
+            <p>
+
+                Use secure internet while making financial transactions.
+
+            </p>
+
+        </div>
+
+        <div class="tip-item">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <h4>
+
+                Enable Alerts
+
+            </h4>
+
+            <p>
+
+                Turn on instant notifications for every transaction.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AI SECURITY STATUS
+========================================== -->
+
+<section class="security-status">
+
+    <div class="status-box">
+
+        <i class="fa-solid fa-robot"></i>
+
+        <div>
+
+            <h3>
+
+                AI Monitoring
+
+            </h3>
+
+            <p>
+
+                AI SecurePay continuously scans your transactions for suspicious activities.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="status-box">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <div>
+
+            <h3>
+
+                Identity Protection
+
+            </h3>
+
+            <p>
+
+                Your identity and account information are protected using advanced AI security.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     NEED HELP
+========================================== -->
+
+<section class="help-card">
+
+    <div class="help-left">
+
+        <div class="help-icon">
+
+            <i class="fa-solid fa-headset"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                Need Help?
+
+            </h2>
+
+            <p>
+
+                Report suspicious activity or contact AI SecurePay Support anytime.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="supportBtn">
+
+        Contact Support
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     REPORT FRAUD
+========================================== -->
+
+<section class="report-card">
+
+    <div class="report-icon">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+    </div>
+
+    <div class="report-content">
+
+        <h3>
+
+            Report Fraud
+
+        </h3>
+
+        <p>
+
+            If you notice any suspicious payment, login attempt, or unauthorized activity, report it immediately.
+
+        </p>
+
+    </div>
+
+    <button id="reportBtn">
+
+        Report Now
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <p>
+
+        <i class="fa-solid fa-lock"></i>
+
+        Secured by AI SecurePay • Bank-Level Security
+
+    </p>
+
+</footer>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/fraud-alerts.js"></script>
+
+</body>
+
+</html>

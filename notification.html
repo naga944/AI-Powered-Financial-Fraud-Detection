@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/notification.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+<div class="top-bar">
+
+<a href="dashboard.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div class="page-title">
+
+<h1>
+
+<i class="fa-solid fa-bell"></i>
+
+Notifications
+
+</h1>
+
+<p>
+
+Stay updated with your account activity
+
+</p>
+
+</div>
+
+<button id="clearBtn">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+     NOTIFICATION SUMMARY
+========================================== -->
+
+<section class="summary-card">
+
+<div class="summary-item">
+
+<i class="fa-solid fa-bell"></i>
+
+<h2 id="totalNotifications">
+
+0
+
+</h2>
+
+<p>
+
+Total Notifications
+
+</p>
+
+</div>
+
+<div class="summary-item">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h2 id="unreadNotifications">
+
+0
+
+</h2>
+
+<p>
+
+Unread
+
+</p>
+
+</div>
+
+<div class="summary-item">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h2 id="securityNotifications">
+
+0
+
+</h2>
+
+<p>
+
+Security
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+     SEARCH
+========================================== -->
+
+<section class="search-section">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+
+type="text"
+
+id="searchNotification"
+
+placeholder="Search notifications...">
+
+</div>
+
+</section>
+  <!-- ==========================================
+     FILTER BUTTONS
+========================================== -->
+
+<section class="filter-section">
+
+<button class="filter-btn active"
+
+data-filter="all">
+
+<i class="fa-solid fa-list"></i>
+
+All
+
+</button>
+
+<button class="filter-btn"
+
+data-filter="payment">
+
+<i class="fa-solid fa-money-bill-transfer"></i>
+
+Payments
+
+</button>
+
+<button class="filter-btn"
+
+data-filter="security">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Security
+
+</button>
+
+<button class="filter-btn"
+
+data-filter="system">
+
+<i class="fa-solid fa-gear"></i>
+
+System
+
+</button>
+
+</section>
+
+<!-- ==========================================
+     TODAY'S NOTIFICATIONS
+========================================== -->
+
+<section class="notification-section">
+
+<div class="section-title">
+
+<h2>
+
+Today's Notifications
+
+</h2>
+
+<span id="notificationCount">
+
+0 Notifications
+
+</span>
+
+</div>
+
+<!-- Dynamic Notification List -->
+
+<div id="notificationContainer">
+
+</div>
+
+<!-- Empty State -->
+
+<div id="emptyNotification"
+
+class="empty-notification">
+
+<div class="empty-icon">
+
+<i class="fa-regular fa-bell-slash"></i>
+
+</div>
+
+<h3>
+
+No Notifications
+
+</h3>
+
+<p>
+
+You're all caught up.
+
+New notifications will appear here automatically.
+
+</p>
+
+</div>
+
+</section>
+  <!-- ==========================================
+     AI SECURITY STATUS
+========================================== -->
+
+<section class="security-card">
+
+    <div class="security-header">
+
+        <div class="security-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                AI Security Status
+
+            </h2>
+
+            <p>
+
+                AI SecurePay is actively monitoring your account for suspicious activities.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="security-grid">
+
+        <div class="security-box">
+
+            <i class="fa-solid fa-shield-check"></i>
+
+            <h3>
+
+                Protection
+
+            </h3>
+
+            <span>
+
+                Active
+
+            </span>
+
+        </div>
+
+        <div class="security-box">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>
+
+                AI Scan
+
+            </h3>
+
+            <span id="scanTime">
+
+                Just Now
+
+            </span>
+
+        </div>
+
+        <div class="security-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h3>
+
+                Login Status
+
+            </h3>
+
+            <span>
+
+                Secure
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     RECENT ACTIVITY
+========================================== -->
+
+<section class="activity-card">
+
+    <div class="activity-title">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <h2>
+
+            Recent Activity
+
+        </h2>
+
+    </div>
+
+    <div class="activity-list">
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-money-bill-transfer"></i>
+
+            <div>
+
+                <h4>
+
+                    Transactions
+
+                </h4>
+
+                <p id="transactionSummary">
+
+                    No recent transactions
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <div>
+
+                <h4>
+
+                    Fraud Detection
+
+                </h4>
+
+                <p id="fraudSummary">
+
+                    AI monitoring enabled
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AI SMART RECOMMENDATIONS
+========================================== -->
+
+<section class="recommendation-card">
+
+    <div class="recommendation-header">
+
+        <i class="fa-solid fa-lightbulb"></i>
+
+        <h2>
+
+            AI Smart Recommendations
+
+        </h2>
+
+    </div>
+
+    <div class="recommendation-list">
+
+        <div class="recommend-item">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Enable biometric login for faster and safer access.
+
+        </div>
+
+        <div class="recommend-item">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Review high-value transactions regularly.
+
+        </div>
+
+        <div class="recommend-item">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Keep notification alerts enabled for all payments.
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================================
+     CONTACT SUPPORT
+========================================== -->
+
+<section class="support-card">
+
+    <div class="support-left">
+
+        <div class="support-icon">
+
+            <i class="fa-solid fa-headset"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                Need Help?
+
+            </h2>
+
+            <p>
+
+                Contact AI SecurePay Support for assistance regarding payments, fraud alerts, or account security.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="supportBtn">
+
+        Contact Support
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     CLEAR NOTIFICATIONS
+========================================== -->
+
+<section class="clear-card">
+
+    <div class="clear-left">
+
+        <div class="clear-icon">
+
+            <i class="fa-solid fa-trash-can"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                Clear Notifications
+
+            </h2>
+
+            <p>
+
+                Remove all notifications from your notification center.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="clearAllBtn">
+
+        Clear All
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>
+
+            AI SecurePay • Secure Banking Notifications
+
+        </span>
+
+    </div>
+
+</footer>
+
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/notification.js"></script>
+
+</body>
+
+</html>

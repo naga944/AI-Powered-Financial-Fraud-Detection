@@ -1,0 +1,1654 @@
+/* ==========================================
+   AI SecurePay - Customer Behaviour
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.back-btn,
+
+.info-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover,
+
+.info-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.page-title{
+
+    flex:1;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.page-title p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.tabs{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:12px;
+
+    padding:18px;
+
+}
+
+.tabs::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.tab{
+
+    border:none;
+
+    background:#1E293B;
+
+    color:#CBD5E1;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:14px;
+
+}
+
+.tab.active{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+.tab:hover{
+
+    background:#1D4ED8;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   BEHAVIOUR SCORE CARD
+========================================== */
+
+.score-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 18px 35px rgba(37,99,235,.30);
+
+}
+
+.score-circle{
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.score-circle span{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.score-circle small{
+
+    font-size:14px;
+
+    color:#DBEAFE;
+
+}
+
+.score-center{
+
+    flex:1;
+
+}
+
+.score-center h2{
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.score-center p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:12px;
+
+}
+
+.risk-profile{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.score-right{
+
+    font-size:42px;
+
+    color:#FFFFFF;
+
+}
+/* ==========================================
+   STATISTICS GRID
+========================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+    margin:20px;
+
+}
+
+/* ==========================================
+   STAT CARD
+========================================== */
+
+.stat-card{
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.stat-card:hover{
+
+    border-color:#2563EB;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+/* ==========================================
+   STAT ICON
+========================================== */
+
+.stat-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+.stat-icon.blue{
+
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
+
+}
+
+.stat-icon.purple{
+
+    background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+
+}
+
+.stat-icon.cyan{
+
+    background:linear-gradient(135deg,#06B6D4,#0891B2);
+
+}
+
+.stat-icon.green{
+
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+
+}
+
+/* ==========================================
+   STAT TEXT
+========================================== */
+
+.stat-card h4{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    line-height:1.5;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card h2{
+
+    color:#FFFFFF;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================
+   CHANGE INDICATOR
+========================================== */
+
+.positive{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#22C55E;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+}
+
+.positive i{
+
+    font-size:11px;
+
+}
+
+.negative{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#EF4444;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.negative i{
+
+    font-size:11px;
+
+}
+
+/* ==========================================
+   NUMBER ANIMATION SUPPORT
+========================================== */
+
+#monthlySpend,
+#avgTransaction,
+#transactionCount,
+#activeDays{
+
+    transition:.4s ease;
+
+}
+/* ==========================================
+   SPENDING PATTERN CARD
+========================================== */
+
+.spending-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.container [data-behaviour-view][hidden] { display:none !important; }
+
+.behaviour-view-panel {
+    margin: 0 25px 26px;
+    padding: 22px;
+    border: 1px solid rgba(153, 184, 221, .16);
+    border-radius: 14px;
+    background: #111d2c;
+}
+
+.behaviour-transaction-list { display:grid; gap:8px; }
+.behaviour-transaction-row {
+    min-height:64px;
+    display:grid;
+    grid-template-columns:minmax(140px,1fr) minmax(130px,1fr) auto;
+    align-items:center;
+    gap:14px;
+    padding:12px 14px;
+    border:1px solid rgba(153,184,221,.12);
+    border-radius:8px;
+    background:#172538;
+}
+.behaviour-transaction-row strong { color:#f2f7fb; font-size:13px; }
+.behaviour-transaction-row span { color:#9db2c7; font-size:12px; }
+.behaviour-transaction-row b { color:#d8ef80; font-size:13px; }
+
+.behaviour-trend-chart {
+    height:260px;
+    display:grid;
+    grid-template-columns:repeat(6,minmax(36px,1fr));
+    align-items:end;
+    gap:18px;
+    padding:20px 12px 8px;
+    border-bottom:1px solid rgba(153,184,221,.2);
+    background:repeating-linear-gradient(to bottom,transparent 0,transparent 63px,rgba(153,184,221,.08) 64px);
+}
+.behaviour-trend-item { height:100%; display:flex; flex-direction:column; align-items:center; justify-content:end; gap:9px; }
+.behaviour-trend-bar { width:min(54px,70%); min-height:8px; border-radius:5px 5px 0 0; background:linear-gradient(180deg,#c8e875,#2f8c81); }
+.behaviour-trend-item span { color:#aabed0; font-size:11px; }
+.behaviour-trend-summary { margin:15px 4px 0; color:#aabed0; font-size:13px; }
+
+@media(max-width:650px){
+    .behaviour-view-panel { margin:0 12px 20px; padding:16px; }
+    .behaviour-transaction-row { grid-template-columns:1fr auto; }
+    .behaviour-transaction-row span { grid-column:1 / -1; grid-row:2; }
+    .behaviour-trend-chart { gap:8px; }
+}
+
+.spending-card:hover{
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.spending-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.spending-header h2{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.spending-header select{
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:8px 12px;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+.spending-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ==========================================
+   TOTAL SPENDING
+========================================== */
+
+.spending-total{
+
+    text-align:center;
+
+}
+
+.spending-total h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#FFFFFF;
+
+}
+
+.spending-total p{
+
+    color:#94A3B8;
+
+    margin:6px 0 15px;
+
+    font-size:14px;
+
+}
+
+.saving-box{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    background:rgba(34,197,94,.15);
+
+    border-radius:20px;
+
+    color:#22C55E;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.saving-box small{
+
+    color:#CBD5E1;
+
+    font-weight:400;
+
+}
+
+/* ==========================================
+   GRAPH
+========================================== */
+
+.graph-area{
+
+    margin-top:10px;
+
+}
+
+.graph{
+
+    position:relative;
+
+    height:170px;
+
+    border-bottom:2px solid #334155;
+
+}
+
+.line{
+
+    position:absolute;
+
+    left:10%;
+
+    right:10%;
+
+    top:55%;
+
+    height:3px;
+
+    background:linear-gradient(90deg,#2563EB,#22C55E);
+
+    border-radius:10px;
+
+}
+
+.point{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    background:#3B82F6;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px rgba(59,130,246,.5);
+
+}
+
+.p1{left:8%;bottom:28%;}
+.p2{left:24%;bottom:42%;}
+.p3{left:40%;bottom:35%;}
+.p4{left:56%;bottom:58%;}
+.p5{left:72%;bottom:48%;}
+.p6{left:88%;bottom:68%;}
+
+.graph-months{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:12px;
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+}
+
+/* ==========================================
+   CATEGORY SECTION
+========================================== */
+
+.category-wrapper{
+
+    margin:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.category-card,
+
+.distribution-card{
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    padding:20px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.category-card:hover,
+
+.distribution-card:hover{
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.category-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.category-header h2{
+
+    font-size:18px;
+
+}
+
+.category-header span{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+}
+
+/* ==========================================
+   PIE CHART
+========================================== */
+
+.pie-chart{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:20px 0;
+
+}
+
+.pie-circle{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:conic-gradient(
+
+        #2563EB 0% 35%,
+
+        #22C55E 35% 60%,
+
+        #F59E0B 60% 80%,
+
+        #8B5CF6 80% 100%
+
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    position:relative;
+
+}
+
+.pie-circle::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:95px;
+
+    height:95px;
+
+    background:#111827;
+
+    border-radius:50%;
+
+}
+
+.pie-circle span,
+
+.pie-circle small{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.pie-circle span{
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.pie-circle small{
+
+    color:#94A3B8;
+
+    font-size:11px;
+
+}
+/* ==========================================
+   AI INSIGHTS
+========================================== */
+
+.insights-card{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.insights-card:hover{
+
+    border-color:#2563EB;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.insights-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.insight-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.insight-title i{
+
+    color:#3B82F6;
+
+    font-size:24px;
+
+}
+
+.insight-title h2{
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+#viewInsights{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px 16px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#viewInsights:hover{
+
+    background:#1D4ED8;
+
+}
+
+.insight-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.insight-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:15px;
+
+    background:#111827;
+
+    border-radius:16px;
+
+    transition:.3s;
+
+}
+
+.insight-item:hover{
+
+    transform:translateX(6px);
+
+}
+
+.insight-item i{
+
+    margin-top:2px;
+
+    font-size:18px;
+
+}
+
+.success{
+
+    color:#22C55E;
+
+}
+
+.warning{
+
+    color:#F59E0B;
+
+}
+
+.danger{
+
+    color:#EF4444;
+
+}
+
+.insight-item p{
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   AI PROTECTION CARD
+========================================== */
+
+.protection-card{
+
+    margin:20px;
+
+    padding:22px;
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    border-radius:24px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    color:#FFFFFF;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.30);
+
+}
+
+.protect-left{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    flex:1;
+
+}
+
+.protect-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+    flex-shrink:0;
+
+}
+
+.protect-left h2{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+.protect-left p{
+
+    color:#DBEAFE;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+#learnMore{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    color:#2563EB;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#learnMore:hover{
+
+    background:#E0F2FE;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:20px;
+
+    padding:18px;
+
+    text-align:center;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+}
+
+footer p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+footer i{
+
+    color:#22C55E;
+
+    margin-right:8px;
+
+}
+/* ==========================================
+   SCORE CIRCLE ANIMATION
+========================================== */
+
+.score-circle{
+
+    animation:scoreGlow 3s infinite alternate;
+
+}
+
+@keyframes scoreGlow{
+
+    from{
+
+        box-shadow:0 0 12px rgba(37,99,235,.30);
+
+    }
+
+    to{
+
+        box-shadow:0 0 30px rgba(37,99,235,.65);
+
+    }
+
+}
+
+.score-circle span{
+
+    animation:scorePulse 2s infinite;
+
+}
+
+@keyframes scorePulse{
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* ==========================================
+   GRAPH ANIMATION
+========================================== */
+
+.line{
+
+    animation:lineGlow 3s infinite alternate;
+
+}
+
+@keyframes lineGlow{
+
+    from{
+
+        opacity:.75;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.point{
+
+    animation:pointPulse 2s infinite;
+
+}
+
+@keyframes pointPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================================
+   PIE CHART ANIMATION
+========================================== */
+
+.pie-circle{
+
+    animation:pieRotate 1.2s ease;
+
+}
+
+@keyframes pieRotate{
+
+    from{
+
+        transform:rotate(-180deg) scale(.85);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:rotate(0deg) scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================
+   CARD HOVER EFFECTS
+========================================== */
+
+.stat-card:hover .stat-icon,
+
+.insight-item:hover i,
+
+.protect-icon:hover{
+
+    transform:scale(1.12) rotate(8deg);
+
+}
+
+.stat-icon,
+
+.protect-icon,
+
+.insight-item i{
+
+    transition:.35s ease;
+
+}
+
+/* ==========================================
+   TAB EFFECT
+========================================== */
+
+.tab:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.tab.active{
+
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================
+   BUTTON EFFECTS
+========================================== */
+
+#viewInsights:hover,
+
+#learnMore:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.30);
+
+}
+
+/* ==========================================
+   CARD SHADOW EFFECTS
+========================================== */
+
+.stat-card:hover,
+
+.category-card:hover,
+
+.distribution-card:hover,
+
+.insights-card:hover,
+
+.spending-card:hover{
+
+    box-shadow:0 18px 35px rgba(37,99,235,.22);
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.top-bar{
+
+    gap:10px;
+
+}
+
+.page-title h1{
+
+    font-size:20px;
+
+}
+
+.page-title p{
+
+    font-size:12px;
+
+}
+
+.score-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.score-right{
+
+    display:none;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.spending-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+.spending-header select{
+
+    width:100%;
+
+}
+
+.category-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+}
+
+.protection-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.protect-left{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+#learnMore{
+
+    width:100%;
+
+}
+
+.insights-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+#viewInsights{
+
+    width:100%;
+
+}
+
+.pie-circle{
+
+    width:130px;
+
+    height:130px;
+
+}
+
+.pie-circle::before{
+
+    width:82px;
+
+    height:82px;
+
+}
+
+}
+
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:pageLoad .5s ease;
+
+}
+
+@keyframes pageLoad{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0F172A;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL TRANSITIONS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/* ==========================================
+   BUTTON ACTIVE EFFECT
+========================================== */
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+.stat-card:active,
+
+.category-card:active,
+
+.distribution-card:active,
+
+.insight-item:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

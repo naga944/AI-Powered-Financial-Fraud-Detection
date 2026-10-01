@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open an Account | AI SecurePay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+  <div class="container">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+
+    <div class="top-logo">
+      <div class="shield">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+    </div>
+
+    <h1>Sign Up</h1>
+    <p class="subtitle">Create your AI secure account and start protecting every transaction.</p>
+
+    <div class="card">
+      <div class="step">STEP 1</div>
+      <h2><i class="fa-solid fa-user-plus"></i> New Account</h2>
+
+      <form id="legacySignupForm">
+        <label for="legacyName">Full Name</label>
+        <input id="legacyName" type="text" placeholder="Enter your full name" required>
+
+        <label for="legacyEmail">Email Address</label>
+        <input id="legacyEmail" type="email" placeholder="Enter your email" required>
+
+        <label for="legacyPhone">Mobile Number</label>
+        <input id="legacyPhone" type="tel" placeholder="Enter mobile number" required>
+
+        <label for="legacyPassword">Password</label>
+        <input id="legacyPassword" type="password" placeholder="Create a password" required>
+
+        <button id="legacySignupBtn" type="submit">
+          <i class="fa-solid fa-user-check"></i>
+          Create Account
+        </button>
+      </form>
+
+      <p class="resend" style="margin-top: 20px; text-align: center;">
+        Already have an account?
+        <a href="mobile-verification.html">Login here</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/signup.js"></script>
+<body class="auth-page">
+
+  <main class="auth-layout">
+    <section class="auth-aside">
+      <a class="auth-brand" href="index.html">
+        <span class="auth-brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+        <span><strong>AI SecurePay</strong><small>Banking intelligence</small></span>
+      </a>
+      <div class="auth-aside-copy">
+        <span class="auth-kicker">A CLEARER VIEW OF YOUR MONEY</span>
+        <h1>Make every financial decision with confidence.</h1>
+        <p>Set up your customer profile to explore secure transfers, account insights, and AI-assisted risk checks in the demo workspace.</p>
+      </div>
+      <div class="trust-row">
+        <span><i class="fa-solid fa-database"></i> Details saved to your account</span>
+        <span><i class="fa-solid fa-lock"></i> Password protected</span>
+      </div>
+    </section>
+    <section class="auth-main">
+      <a class="auth-back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+      <div class="auth-card">
+        <span class="auth-kicker">GET STARTED</span>
+        <h2>Open your account</h2>
+        <p class="auth-subtitle">Your contact details appear in your profile and the admin customer directory.</p>
+        <form id="signupForm" class="auth-form">
+          <label for="name">Full name</label>
+          <div class="auth-input-wrap"><i class="fa-regular fa-user"></i><input id="name" type="text" autocomplete="name" placeholder="Your full name" required></div>
+          <label for="email">Email address</label>
+          <div class="auth-input-wrap"><i class="fa-regular fa-envelope"></i><input id="email" type="email" autocomplete="email" placeholder="name@example.com" required></div>
+          <label for="phone">Mobile number</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-mobile-screen-button"></i><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required></div>
+          <label for="password">Password</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input id="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required></div>
+          <p id="signupMessage" class="auth-message" role="status" aria-live="polite"></p>
+          <button id="signupBtn" class="auth-submit" type="submit"><span>Create account</span><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+        <p class="auth-switch">Already registered? <a href="mobile-verification.html">Sign in</a></p>
+        <p class="demo-note"><i class="fa-solid fa-circle-info"></i> Demo environment: no bank connection or real money movement is enabled.</p>
+      </div>
+    </section>
+  </main>
+</html>

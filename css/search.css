@@ -1,0 +1,1730 @@
+/* ==========================================
+   AI SecurePay Search Page
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#08111F;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    padding:20px;
+
+    border-bottom:1px solid #1E293B;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.back-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#2563EB;
+
+}
+
+.top-bar h1{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   SEARCH BAR
+========================================== */
+
+.search-section{
+
+    padding:20px;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    padding:14px 18px;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.search-box:focus-within{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 18px rgba(37,99,235,.25);
+
+}
+
+.search-box i{
+
+    color:#94A3B8;
+
+    font-size:18px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#94A3B8;
+
+}
+
+#clearSearch{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.section-title h2{
+
+    font-size:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.section-title h2 i{
+
+    color:#3B82F6;
+
+}
+
+.section-title button,
+
+.section-title a{
+
+    border:none;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+.section-title button:hover,
+
+.section-title a:hover{
+
+    background:#1D4ED8;
+
+}
+/* ==========================================
+   RECENT SEARCHES
+========================================== */
+
+.recent-searches{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#recentSearchList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.recent-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.recent-item:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.recent-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.recent-left i{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.recent-left h4{
+
+    font-size:15px;
+
+}
+
+.recent-left p{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+}
+
+/* ==========================================
+   PEOPLE
+========================================== */
+
+.people-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#peopleList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.person-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.person-card:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.person-card .person-initial{
+
+    width:55px;
+
+    height:55px;
+
+    flex:0 0 55px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#244653;
+
+    color:#d8ef80;
+
+    font-weight:700;
+
+}
+
+.person-card div:not(.person-initial){
+
+    flex:1;
+
+}
+
+.person-card h3{
+
+    font-size:16px;
+
+    margin-bottom:4px;
+
+}
+
+.person-card p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.pay-btn{
+
+    border:none;
+
+    background:#22C55E;
+
+    color:#FFFFFF;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.pay-btn:hover{
+
+    background:#16A34A;
+
+}
+
+/* ==========================================
+   BANKS
+========================================== */
+
+.bank-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#bankList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.bank-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.bank-card:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.bank-card i{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.bank-card div{
+
+    flex:1;
+
+}
+
+.bank-card h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.bank-card p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+/* ==========================================
+   QUICK SERVICES
+========================================== */
+
+.services-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.service-card{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:20px 10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#FFFFFF;
+
+    transition:.3s;
+
+}
+
+.service-card:hover{
+
+    background:#2563EB;
+
+    transform:translateY(-4px);
+
+}
+
+.service-card i{
+
+    font-size:28px;
+
+    color:#3B82F6;
+
+    margin-bottom:12px;
+
+}
+
+.service-card:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.service-card span{
+
+    font-size:13px;
+
+    text-align:center;
+
+    font-weight:500;
+
+}
+
+/* ==========================================
+   SEARCH RESULTS
+========================================== */
+
+.results-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#searchResults{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.result-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.result-card:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-3px);
+
+}
+
+.result-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.result-details{
+
+    flex:1;
+
+}
+
+.result-details h3{
+
+    font-size:16px;
+
+    margin-bottom:5px;
+
+}
+
+.result-details p{
+
+    font-size:13px;
+
+    color:#94A3B8;
+
+}
+
+/* ==========================================
+   RECENT TRANSACTIONS
+========================================== */
+
+.transactions-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#transactionList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.transaction-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.transaction-card:hover{
+
+    background:#1F2937;
+
+}
+
+.transaction-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.transaction-left i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.transaction-left h4{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+.transaction-left p{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+}
+
+.transaction-amount{
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#22C55E;
+
+}
+
+/* ==========================================
+   NOTIFICATIONS
+========================================== */
+
+.notifications-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#notificationList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.notification-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+}
+
+.notification-card:hover{
+
+    background:#1F2937;
+
+}
+
+.notification-card i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+}
+/* ==========================================
+   FRAUD ALERTS
+========================================== */
+
+.fraud-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+#fraudList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.fraud-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    border-left:5px solid #EF4444;
+
+    transition:.3s;
+
+}
+
+.fraud-card:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-2px);
+
+}
+
+.fraud-card i{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+}
+
+.fraud-card h4{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+.fraud-card p{
+
+    color:#CBD5E1;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   AI SMART SUGGESTIONS
+========================================== */
+
+.ai-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.ai-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.ai-card{
+
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+
+    padding:20px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.ai-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
+}
+
+.ai-card i{
+
+    font-size:28px;
+
+    color:#FFFFFF;
+
+    margin-bottom:12px;
+
+}
+
+.ai-card h3{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+.ai-card p{
+
+    color:#DBEAFE;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   FREQUENTLY USED
+========================================== */
+
+.quick-access{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.quick-card{
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    border-radius:18px;
+
+    padding:20px 10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+}
+
+.quick-card:hover{
+
+    background:#2563EB;
+
+    transform:translateY(-4px);
+
+}
+
+.quick-card i{
+
+    font-size:24px;
+
+    color:#3B82F6;
+
+    margin-bottom:10px;
+
+}
+
+.quick-card:hover i{
+
+    color:#FFFFFF;
+
+}
+
+.quick-card span{
+
+    font-size:13px;
+
+    text-align:center;
+
+}
+
+/* ==========================================
+   SEARCH STATISTICS
+========================================== */
+
+.statistics-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.stats-card{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stats-card:hover{
+
+    background:#1F2937;
+
+    transform:translateY(-3px);
+
+}
+
+.stats-card h3{
+
+    font-size:26px;
+
+    color:#3B82F6;
+
+    margin-bottom:8px;
+
+}
+
+.stats-card p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+/* ==========================================
+   HELP & SUPPORT
+========================================== */
+
+.support-section{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:22px;
+
+}
+
+.support-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.support-buttons button{
+
+    width:100%;
+
+    border:none;
+
+    background:#111827;
+
+    color:#FFFFFF;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.support-buttons button:hover{
+
+    background:#2563EB;
+
+    transform:translateY(-2px);
+
+}
+
+.support-buttons button i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+.footer-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.footer-content i{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+.footer-content p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   COMMON BUTTON EFFECTS
+========================================== */
+
+button{
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ==========================================
+   CARD HOVER
+========================================== */
+
+.person-card:hover,
+
+.bank-card:hover,
+
+.transaction-card:hover,
+
+.notification-card:hover,
+
+.fraud-card:hover,
+
+.ai-card:hover,
+
+.quick-card:hover,
+
+.service-card:hover,
+
+.stats-card:hover{
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+}
+
+/* ==========================================
+   FADE ANIMATION
+========================================== */
+
+.person-card,
+
+.bank-card,
+
+.transaction-card,
+
+.notification-card,
+
+.fraud-card,
+
+.ai-card,
+
+.quick-card,
+
+.service-card,
+
+.stats-card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    border-radius:0;
+
+    min-height:100vh;
+
+}
+
+.top-bar h1{
+
+    font-size:22px;
+
+}
+
+.search-box{
+
+    padding:12px 15px;
+
+}
+
+.services-grid,
+
+.quick-grid,
+
+.ai-grid,
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.person-card,
+
+.bank-card,
+
+.transaction-card,
+
+.notification-card,
+
+.fraud-card{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    text-align:left;
+
+}
+
+.person-card img{
+
+    width:60px;
+
+    height:60px;
+
+}
+
+.pay-btn{
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+.section-title{
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.footer-content{
+
+    text-align:center;
+
+}
+
+.support-buttons button{
+
+    font-size:14px;
+
+}
+
+}
+
+/* ==========================================
+   PAGE LOAD ANIMATION
+========================================== */
+
+.container{
+
+    animation:pageFade .5s ease;
+
+}
+
+@keyframes pageFade{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08111F;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================================
+   GLOBAL EFFECTS
+========================================== */
+
+*{
+
+    transition:.25s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+::selection{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+input{
+
+    caret-color:#3B82F6;
+
+}
+
+.service-card:active,
+
+.quick-card:active,
+
+.person-card:active,
+
+.bank-card:active,
+
+.transaction-card:active,
+
+.notification-card:active,
+
+.fraud-card:active,
+
+.ai-card:active,
+
+.stats-card:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   SEARCH INPUT ANIMATION
+========================================== */
+
+#searchInput{
+
+    transition:.3s;
+
+}
+
+#searchInput:focus{
+
+    letter-spacing:.3px;
+
+}
+
+/* ==========================================
+   END OF FILE
+========================================== */

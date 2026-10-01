@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Behaviour | AI SecurePay</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/customer-behaviour.css">
+      <link rel="stylesheet" href="css/desktop-experience.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div class="top-bar">
+
+        <a href="dashboard.html"
+           class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+        <div class="page-title">
+
+            <h1>
+
+                Customer Behaviour
+
+            </h1>
+
+            <p>
+
+                AI-powered insights into your spending habits
+
+            </p>
+
+        </div>
+
+        <button id="infoBtn"
+                class="info-btn">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     NAVIGATION TABS
+========================================== -->
+
+<section class="tabs">
+
+    <button class="tab active" data-view="overview">
+
+        <i class="fa-solid fa-chart-pie"></i>
+
+        <span>Overview</span>
+
+    </button>
+
+    <button class="tab" data-view="spending">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <span>Spending</span>
+
+    </button>
+
+    <button class="tab" data-view="transactions">
+
+        <i class="fa-solid fa-money-check-dollar"></i>
+
+        <span>Transactions</span>
+
+    </button>
+
+    <button class="tab" data-view="categories">
+
+        <i class="fa-solid fa-table-cells"></i>
+
+        <span>Categories</span>
+
+    </button>
+
+    <button class="tab" data-view="trends">
+
+        <i class="fa-solid fa-arrow-trend-up"></i>
+
+        <span>Trends</span>
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     BEHAVIOUR SCORE CARD
+========================================== -->
+
+<section class="score-card" data-behaviour-view="overview">
+
+    <div class="score-left">
+
+        <div class="score-circle">
+
+            <span id="behaviourScore">
+
+                82
+
+            </span>
+
+            <small>/100</small>
+
+        </div>
+
+    </div>
+
+    <div class="score-center">
+
+        <h2 id="behaviourTitle">
+
+            Good Behaviour
+
+        </h2>
+
+        <p id="behaviourText">
+
+            Your spending and transaction
+            patterns are healthy.
+
+        </p>
+
+        <span id="riskProfile"
+              class="risk-profile">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Low Risk Profile
+
+        </span>
+
+    </div>
+
+    <div class="score-right">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     STATISTICS CARDS
+========================================== -->
+
+<section class="stats-grid" data-behaviour-view="overview">
+
+    <!-- Average Monthly Spend -->
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+
+            <i class="fa-solid fa-wallet"></i>
+
+        </div>
+
+        <h4>
+
+            Avg. Monthly Spend
+
+        </h4>
+
+        <h2 id="monthlySpend">
+
+            ₹24,560
+
+        </h2>
+
+        <p class="positive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+            <span id="monthlyChange">
+
+                8.6%
+
+            </span>
+
+            vs last month
+
+        </p>
+
+    </div>
+
+    <!-- Average Transaction -->
+
+    <div class="stat-card">
+
+        <div class="stat-icon purple">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <h4>
+
+            Avg. Transaction Value
+
+        </h4>
+
+        <h2 id="avgTransaction">
+
+            ₹1,850
+
+        </h2>
+
+        <p class="positive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+            <span id="avgChange">
+
+                5.2%
+
+            </span>
+
+            vs last month
+
+        </p>
+
+    </div>
+
+    <!-- Transactions Per Month -->
+
+    <div class="stat-card">
+
+        <div class="stat-icon cyan">
+
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+        </div>
+
+        <h4>
+
+            Transactions / Month
+
+        </h4>
+
+        <h2 id="transactionCount">
+
+            32
+
+        </h2>
+
+        <p class="positive">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+            <span id="transactionChange">
+
+                10.3%
+
+            </span>
+
+            vs last month
+
+        </p>
+
+    </div>
+
+    <!-- Active Days -->
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+        </div>
+
+        <h4>
+
+            Active Days
+
+        </h4>
+
+        <h2>
+
+            <span id="activeDays">
+
+                24
+
+            </span>
+
+            /30
+
+        </h2>
+
+        <p class="positive">
+
+            <i class="fa-solid fa-arrow-up"></i>
+
+            <span id="daysChange">
+
+                4 Days
+
+            </span>
+
+            vs last month
+
+        </p>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     SPENDING PATTERN
+========================================== -->
+
+<section class="spending-card" data-behaviour-view="spending">
+
+    <div class="spending-header">
+
+        <h2>
+
+            Spending Pattern
+
+        </h2>
+
+        <select id="monthFilter">
+
+            <option>
+
+                Last 6 Months
+
+            </option>
+
+            <option>
+
+                Last 3 Months
+
+            </option>
+
+            <option>
+
+                This Year
+
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="spending-content">
+
+        <div class="spending-total">
+
+            <h1 id="totalSpend">
+
+                ₹1,47,360
+
+            </h1>
+
+            <p>
+
+                Total Spending
+
+            </p>
+
+            <div class="saving-box">
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+                <span id="savingPercent">
+
+                    7.8%
+
+                </span>
+
+                <small>
+
+                    vs previous 6 months
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Spending Graph -->
+
+        <div class="graph-area">
+
+            <div class="graph">
+
+                <div class="line"></div>
+
+                <span class="point p1"></span>
+
+                <span class="point p2"></span>
+
+                <span class="point p3"></span>
+
+                <span class="point p4"></span>
+
+                <span class="point p5"></span>
+
+                <span class="point p6"></span>
+
+            </div>
+
+            <div class="graph-months">
+
+                <span>Dec</span>
+
+                <span>Jan</span>
+
+                <span>Feb</span>
+
+                <span>Mar</span>
+
+                <span>Apr</span>
+
+                <span>May</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     CATEGORY SECTION
+========================================== -->
+
+<section class="category-wrapper" data-behaviour-view="categories">
+
+    <!-- Top Spending Categories -->
+
+    <div class="category-card">
+
+        <div class="category-header">
+
+            <h2>
+
+                Top Spending Categories
+
+            </h2>
+
+            <span>
+
+                This Month
+
+            </span>
+
+        </div>
+
+        <div id="categoryList">
+
+            <!-- JS will insert categories -->
+
+        </div>
+
+    </div>
+
+    <!-- Spending Distribution -->
+
+    <div class="distribution-card">
+
+        <div class="category-header">
+
+            <h2>
+
+                Spending Distribution
+
+            </h2>
+
+            <span>
+
+                This Month
+
+            </span>
+
+        </div>
+
+        <div class="pie-chart">
+
+            <div class="pie-circle">
+
+                <span id="pieTotal">
+
+                    ₹24,560
+
+                </span>
+
+                <small>
+
+                    Total Spend
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <div id="distributionList">
+
+            <!-- JS will insert legend -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="behaviour-view-panel" data-behaviour-view="transactions" hidden>
+    <div class="category-header">
+        <h2>Recorded Transactions</h2>
+        <span>Account history</span>
+    </div>
+    <div id="behaviourTransactionList" class="behaviour-transaction-list"></div>
+</section>
+
+<section class="behaviour-view-panel" data-behaviour-view="trends" hidden>
+    <div class="category-header">
+        <h2>Monthly Spend Trend</h2>
+        <span>Based on saved transfers</span>
+    </div>
+    <div id="behaviourTrendChart" class="behaviour-trend-chart"></div>
+    <p id="behaviourTrendSummary" class="behaviour-trend-summary"></p>
+</section>
+
+<!-- ==========================================
+     AI INSIGHTS
+========================================== -->
+
+<section class="insights-card" data-behaviour-view="overview">
+
+    <div class="insights-header">
+
+        <div class="insight-title">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h2>
+
+                AI Insights
+
+            </h2>
+
+        </div>
+
+        <button id="viewInsights">
+
+            View All
+
+        </button>
+
+    </div>
+
+    <div class="insight-list">
+
+        <div class="insight-item">
+
+            <i class="fa-solid fa-circle-check success"></i>
+
+            <p id="insight1">
+
+                You spend 18% less on average compared to last month.
+
+            </p>
+
+        </div>
+
+        <div class="insight-item">
+
+            <i class="fa-solid fa-circle-check success"></i>
+
+            <p id="insight2">
+
+                Most of your transactions are during
+                afternoon (12 PM - 4 PM).
+
+            </p>
+
+        </div>
+
+        <div class="insight-item">
+
+            <i class="fa-solid fa-circle-check success"></i>
+
+            <p id="insight3">
+
+                You have a consistent saving pattern.
+                Keep it up!
+
+            </p>
+
+        </div>
+
+        <div class="insight-item">
+
+            <i class="fa-solid fa-circle-check success"></i>
+
+            <p id="insight4">
+
+                AI detected no unusual spending behaviour
+                this month.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AI BEHAVIOUR PROTECTION
+========================================== -->
+
+<section class="protection-card" data-behaviour-view="overview">
+
+    <div class="protect-left">
+
+        <div class="protect-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+
+                AI Behaviour Protection
+
+            </h2>
+
+            <p>
+
+                Summaries are generated from your recorded demo transfers. No background surveillance or live bank feed is active.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="learnMore">
+
+        Learn More
+
+    </button>
+
+</section>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <p>
+
+        <i class="fa-solid fa-lock"></i>
+
+        Insights are generated using AI and are
+        for informational purposes only.
+
+    </p>
+
+</footer>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="js/customer-behaviour.js"></script>
+
+</div>
+
+</body>
+
+</html>
