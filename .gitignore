@@ -1,0 +1,4 @@
+node_modules/
+.env
+securepay.sqlite
+npm-debug.log*

@@ -11,6 +11,9 @@ const { initializeDatabase, getOne, getAll, runSql } = require('./database');
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const JWT_SECRET = process.env.JWT_SECRET || 'ai_securepay_secret';
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+  throw new Error('JWT_SECRET must be set in production.');
+}
 const QR_SECRET = process.env.QR_SECRET || JWT_SECRET;
 const FASTAPI_URL = process.env.FASTAPI_URL || 'http://localhost:8000';
 const appRoot = __dirname;

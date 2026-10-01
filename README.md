@@ -148,6 +148,12 @@ node server.js
 http://localhost:3000/mobile-verification.html
 ```
 
+## Deploy to Render
+
+Create a new Render web service from this repository and select **Blueprint** so Render applies `render.yaml`. The service installs with `npm ci`, starts with `npm start`, and Render generates `JWT_SECRET` automatically. Keep that secret stable across deploys so existing login tokens remain valid.
+
+SQLite works for demos, but its data is not durable on Render's default filesystem. To keep data across deploys, attach a persistent disk and set `DB_FILE` to a path on its mount (for example, `/var/data/securepay.sqlite`).
+
 ## Environment Configuration
 
 Create a `.env` file based on `.env.example`:

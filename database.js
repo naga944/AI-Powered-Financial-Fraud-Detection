@@ -6,12 +6,14 @@ const mysql = require('mysql2/promise');
 
 const appRoot = __dirname;
 const dbType = (process.env.DB_TYPE || 'sqlite').toLowerCase();
-const dbFile = path.join(appRoot, 'securepay.sqlite');
+const dbFile = path.resolve(process.env.DB_FILE || path.join(appRoot, 'securepay.sqlite'));
 
 let connection = null;
 let dbMode = 'sqlite';
 
 async function createSqliteDb() {
+  await fs.promises.mkdir(path.dirname(dbFile), { recursive: true });
+
   if (fs.existsSync(dbFile)) {
     return;
   }
